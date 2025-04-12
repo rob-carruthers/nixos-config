@@ -9,6 +9,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_ROOT";
