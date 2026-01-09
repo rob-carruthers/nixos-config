@@ -14,9 +14,9 @@
 
   home.stateVersion = "25.11";
 
-  programs.git.enable = true;
   programs.bash.enable = true;
   programs.firefox.enable = true;
+  programs.git.enable = true;
 
   home.packages = with pkgs; [
     wl-clipboard
