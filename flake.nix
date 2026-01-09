@@ -22,8 +22,8 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users = {
-            rob = import ./rob.nix;
-            root = import ./root.nix;
+            rob = import ./users/rob.nix;
+            root = import ./users/root.nix;
           };
         }
       ];

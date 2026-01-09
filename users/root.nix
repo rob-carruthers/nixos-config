@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./apps/helix.nix
-    ./apps/starship.nix
+    ../apps/helix.nix
+    ../apps/starship.nix
   ];
   home.username = "root";
   home.homeDirectory = "/root";

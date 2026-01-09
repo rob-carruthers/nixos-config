@@ -2,12 +2,12 @@
 
 {
   imports = [
-    ./apps/foot.nix
-    ./apps/helix.nix
-    ./apps/labwc.nix
-    ./apps/starship.nix
-    ./apps/tmux.nix
-    ./apps/wofi.nix
+    ../apps/foot.nix
+    ../apps/helix.nix
+    ../apps/labwc.nix
+    ../apps/starship.nix
+    ../apps/tmux.nix
+    ../apps/wofi.nix
   ];
   home.username = "rob";
   home.homeDirectory = "/home/rob";
