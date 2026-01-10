@@ -3,6 +3,9 @@
 {
   wayland.windowManager.labwc = {
       enable = true;
+      autostart = [
+        "kanshi &"
+      ];
       rc = {
         theme = {
           name = "nord";

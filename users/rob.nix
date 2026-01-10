@@ -4,6 +4,7 @@
   imports = [
     ../apps/foot.nix
     ../apps/helix.nix
+    ../apps/kanshi.nix
     ../apps/labwc.nix
     ../apps/starship.nix
     ../apps/tmux.nix
