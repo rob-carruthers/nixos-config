@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./config/inputrc.nix
+      ./services/avahi.nix
     ];
 
   nixpkgs.config = {
