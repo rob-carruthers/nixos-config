@@ -14,4 +14,3 @@
     terminal = "foot";
   };
 }
-

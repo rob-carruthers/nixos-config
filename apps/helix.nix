@@ -11,5 +11,3 @@ in
 {
   xdg.configFile."helix".source = helixConfig;
 }
-
-

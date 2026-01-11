@@ -2,15 +2,20 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./config/inputrc.nix
-      ./services/avahi.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./config/inputrc.nix
+    ./services/avahi.nix
+  ];
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -56,7 +61,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = false;
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   programs.sway.enable = false;
   services.dbus.enable = true;
@@ -66,7 +71,7 @@
     modesetting.enable = true;
     nvidiaSettings = true;
     open = true;
-    package = config.boot.kernelPackages.nvidiaPackages.production; 
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 
   fonts.packages = with pkgs; [
@@ -86,11 +91,10 @@
   users.users.rob = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  #   packages = with pkgs; [
-  #     tree
-  #   ];
+    #   packages = with pkgs; [
+    #     tree
+    #   ];
   };
-  
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -119,6 +123,7 @@
   environment.systemPackages = with pkgs; [
     helix
     htop
+    nixfmt-rfc-style
     wget
   ];
 
@@ -166,4 +171,3 @@
   system.stateVersion = "25.11"; # Did you read the comment?
 
 }
-

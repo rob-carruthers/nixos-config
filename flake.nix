@@ -7,26 +7,36 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
-    nixosConfigurations.rob-pc = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./configuration.nix
-        {
-          nix = {
-            settings.experimental-features = [ "nix-command" "flakes" ];
-          };
-        }
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users = {
-            rob = import ./users/rob.nix;
-            root = import ./users/root.nix;
-          };
-        }
-      ];
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
+    {
+      nixosConfigurations.rob-pc = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          {
+            nix = {
+              settings.experimental-features = [
+                "nix-command"
+                "flakes"
+              ];
+            };
+          }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users = {
+              rob = import ./users/rob.nix;
+              root = import ./users/root.nix;
+            };
+          }
+        ];
+      };
     };
-  };
 }
