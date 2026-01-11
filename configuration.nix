@@ -17,32 +17,9 @@
     ./services/avahi.nix
   ];
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    permittedInsecurePackages = [
-      "libsoup-2.74.3"
-    ];
-  };
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.limine.enable = true;
-  boot.loader.limine.extraEntries = "
-
-/Void Linux
-    //6.18.3
-    protocol: linux
-    path: boot():/vmlinuz-6.18.3_1
-    cmdline: root=PARTUUID=6fa8381d-5d8b-1f48-8b62-3e38a99153e3 rootfstype=btrfs rootflags=subvol=/@void,compress=zstd rw audit=0 mitigations=off usbcore.autosuspend=-1 modprobe.blacklist=nouveau,pcspkr,snd_hda_codec_hdmi,snd_hda_intel ipv6.disable=1 memmap=0x10000$0x0002ec1437d0 memmap=0x100000$0x002ee143950 threadirqs quiet nvidia.NVreg_EnableGpuFirmware=0 nvidia_drm.modeset=1
-    module_path: boot():/initramfs-6.18.3_1.img
-
-
-/Windows 11
-    protocol: efi
-    path: boot():/EFI/Microsoft/Boot/bootmgfw.efi";
-
   boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "rob-pc"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -50,21 +27,11 @@
   # Set your time zone.
   time.timeZone = "Europe/London";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
 
   # Enable the X11 windowing system.
   services.xserver.enable = false;
-  services.xserver.videoDrivers = [ "nvidia" ];
 
   programs.sway.enable = false;
   programs.dconf.enable = true;
@@ -94,22 +61,15 @@
 
   users.users.rob = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" ];
     #   packages = with pkgs; [
     #     tree
     #   ];
   };
 
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -118,15 +78,6 @@
     pulse.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-
-  # programs.firefox.enable = true;
-
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     helix
     htop
@@ -136,24 +87,8 @@
     wget
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

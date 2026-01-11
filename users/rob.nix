@@ -4,18 +4,6 @@ let
   memphis98 = import ../themes/memphis98.nix { inherit pkgs; };
 in
 {
-  imports = [
-    ../apps/foot.nix
-    ../apps/helix.nix
-    ../apps/kanshi.nix
-    ../apps/labwc.nix
-    ../apps/mpd.nix
-    ../apps/starship.nix
-    ../apps/tmux.nix
-    ../apps/waybar.nix
-    ../apps/wofi.nix
-  ];
-
   home.username = "rob";
   home.homeDirectory = "/home/rob";
   home.stateVersion = "25.11";

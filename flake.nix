@@ -19,6 +19,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
+          ./hosts/rob-pc/configuration.nix
           {
             nix = {
               settings.experimental-features = [
@@ -28,14 +29,6 @@
             };
           }
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users = {
-              rob = import ./users/rob.nix;
-              root = import ./users/root.nix;
-            };
-          }
         ];
       };
     };
