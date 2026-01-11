@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
+let
+  memphis98 = import ../themes/memphis98.nix { inherit pkgs; };
+in
 {
   imports = [
     ../apps/foot.nix
@@ -10,17 +13,27 @@
     ../apps/tmux.nix
     ../apps/wofi.nix
   ];
+
   home.username = "rob";
   home.homeDirectory = "/home/rob";
-
   home.stateVersion = "25.11";
+
+  home.packages = with pkgs; [
+    memphis98
+    wl-clipboard
+  ];
 
   programs.bash.enable = true;
   programs.firefox.enable = true;
   programs.git.enable = true;
   programs.lazygit.enable = true;
 
-  home.packages = with pkgs; [
-    wl-clipboard
-  ];
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Memphis98";
+      package = memphis98;
+    };
+  };
+
 }
