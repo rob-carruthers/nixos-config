@@ -15,21 +15,23 @@
       ...
     }:
     {
-      nixosConfigurations.rob-pc = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./configuration.nix
-          ./hosts/rob-pc/configuration.nix
-          {
-            nix = {
-              settings.experimental-features = [
-                "nix-command"
-                "flakes"
-              ];
-            };
-          }
-          home-manager.nixosModules.home-manager
-        ];
+      nixosConfigurations = {
+        rob-pc = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./configuration.nix
+            ./hosts/rob-pc/configuration.nix
+            {
+              nix = {
+                settings.experimental-features = [
+                  "nix-command"
+                  "flakes"
+                ];
+              };
+            }
+            home-manager.nixosModules.home-manager
+          ];
+        };
       };
     };
 }
