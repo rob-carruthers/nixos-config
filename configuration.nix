@@ -11,7 +11,10 @@
 {
   imports = [
     # Include the results of the hardware scan.
+    ./config/audio.nix
+    ./config/fonts.nix
     ./config/inputrc.nix
+    ./config/video.nix
     ./services/avahi.nix
   ];
 
@@ -31,31 +34,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = false;
 
-  programs.sway.enable = false;
   programs.dconf.enable = true;
   services.dbus.enable = true;
   security.polkit.enable = true;
-  hardware.graphics.enable = true;
-  hardware.nvidia = {
-    modesetting.enable = true;
-    nvidiaSettings = true;
-    open = true;
-    package = config.boot.kernelPackages.nvidiaPackages.production;
-  };
-
-  fonts.packages = with pkgs; [
-    font-awesome_5
-    nerd-fonts.jetbrains-mono
-    noto-fonts
-  ];
-
-  services.greetd.enable = true;
-  services.greetd.settings = {
-    default_session = {
-      command = "labwc";
-      user = "rob";
-    };
-  };
 
   users.users.rob = {
     isNormalUser = true;
@@ -67,14 +48,6 @@
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    jack.enable = true;
-    pulse.enable = true;
-  };
 
   environment.systemPackages = with pkgs; [
     helix
