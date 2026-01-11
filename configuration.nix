@@ -31,9 +31,6 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = false;
-
   programs.dconf.enable = true;
   services.dbus.enable = true;
   security.polkit.enable = true;

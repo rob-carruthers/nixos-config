@@ -1,6 +1,7 @@
 { config, ... }:
 
 {
+  services.xserver.enable = false;
   programs.sway.enable = false;
   hardware.graphics.enable = true;
   hardware.nvidia = {
