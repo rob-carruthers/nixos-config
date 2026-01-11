@@ -79,8 +79,9 @@
   };
 
   fonts.packages = with pkgs; [
-    noto-fonts
+    font-awesome_5
     nerd-fonts.jetbrains-mono
+    noto-fonts
   ];
 
   services.greetd.enable = true;

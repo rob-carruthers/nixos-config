@@ -21,7 +21,9 @@ in
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
+    lxqt.pcmanfm-qt
     memphis98
+    nwg-menu
     pavucontrol
     wl-clipboard
   ];
