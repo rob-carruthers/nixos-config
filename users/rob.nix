@@ -9,6 +9,7 @@ in
     ../apps/helix.nix
     ../apps/kanshi.nix
     ../apps/labwc.nix
+    ../apps/mpd.nix
     ../apps/starship.nix
     ../apps/tmux.nix
     ../apps/waybar.nix
