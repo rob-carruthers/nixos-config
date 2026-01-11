@@ -21,6 +21,7 @@ in
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
+    gvfs
     lxqt.pcmanfm-qt
     memphis98
     nwg-menu
