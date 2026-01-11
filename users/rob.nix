@@ -49,10 +49,18 @@ in
       Appearance = {
         icon_theme = "Memphis98";
       };
+      Fonts = {
+        fixed = "\"JetBrainsMono Nerd Font Mono,9\"";
+        general = "\"Noto Sans Regular,8\"";
+      };
     };
     qt6ctSettings = {
       Appearance = {
         icon_theme = "Memphis98";
+      };
+      Fonts = {
+        fixed = "\"JetBrainsMono Nerd Font Mono,9\"";
+        general = "\"Noto Sans Regular,8\"";
       };
     };
   };
