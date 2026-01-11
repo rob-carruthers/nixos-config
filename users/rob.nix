@@ -22,6 +22,7 @@ in
 
   home.packages = with pkgs; [
     memphis98
+    pavucontrol
     wl-clipboard
   ];
 
