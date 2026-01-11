@@ -19,6 +19,9 @@
 
   nixpkgs.config = {
     allowUnfree = true;
+    permittedInsecurePackages = [
+      "libsoup-2.74.3"
+    ];
   };
 
   # Use the systemd-boot EFI boot loader.
@@ -64,6 +67,7 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   programs.sway.enable = false;
+  programs.dconf.enable = true;
   services.dbus.enable = true;
   security.polkit.enable = true;
   hardware.graphics.enable = true;
