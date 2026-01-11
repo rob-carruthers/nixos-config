@@ -82,6 +82,7 @@
     helix
     htop
     inotify-tools
+    nil
     nixfmt-rfc-style
     ripgrep
     wget
