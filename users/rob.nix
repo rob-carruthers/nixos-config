@@ -20,7 +20,15 @@ in
   programs.bash.enable = true;
   programs.firefox.enable = true;
   programs.git.enable = true;
-  programs.lazygit.enable = true;
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      os = {
+        edit = "hx {{filename}}";
+        editAtLine = "hx {{filename}}:{{line}}";
+      };
+    };
+  };
 
   gtk = {
     enable = true;
