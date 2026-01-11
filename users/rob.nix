@@ -11,6 +11,7 @@ in
     ../apps/labwc.nix
     ../apps/starship.nix
     ../apps/tmux.nix
+    ../apps/waybar.nix
     ../apps/wofi.nix
   ];
 

@@ -5,6 +5,7 @@
     enable = true;
     autostart = [
       "kanshi &"
+      "waybar &"
     ];
     rc = {
       theme = {
