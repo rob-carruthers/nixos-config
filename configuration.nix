@@ -91,7 +91,6 @@
     };
   };
 
-
   users.users.rob = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
@@ -132,6 +131,7 @@
     htop
     inotify-tools
     nixfmt-rfc-style
+    ripgrep
     wget
   ];
 
