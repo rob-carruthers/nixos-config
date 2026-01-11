@@ -67,6 +67,18 @@
       ../../apps/waybar.nix
       ../../apps/wofi.nix
     ];
+    qt.qt5ctSettings = {
+      Fonts = {
+        fixed = "\"JetBrainsMono Nerd Font Mono,9\"";
+        general = "\"Noto Sans Regular,8\"";
+      };
+    };
+    qt.qt6ctSettings = {
+      Fonts = {
+        fixed = "\"JetBrainsMono Nerd Font Mono,9\"";
+        general = "\"Noto Sans Regular,8\"";
+      };
+    };
   };
   home-manager.users.root = {
     imports = [
