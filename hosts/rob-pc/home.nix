@@ -27,6 +27,9 @@
         general = "\"Noto Sans Regular,8\"";
       };
     };
+    wayland.windowManager.labwc.environment = [
+      "XKB_DEFAULT_LAYOUT=us"
+    ];
   };
   home-manager.users.root = {
     imports = [
