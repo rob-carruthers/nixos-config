@@ -9,6 +9,7 @@
         type "pipewire"
         name "PipeWire Output"
       }
+      restore_paused "yes"
     '';
 
   };
