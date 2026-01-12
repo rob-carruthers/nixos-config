@@ -14,6 +14,7 @@
     ./boot.nix
     ./hardware-configuration.nix
     ./home.nix
+    ./video.nix
   ];
 
   networking.hostName = "rob-laptop"; # Define your hostname.
