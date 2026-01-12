@@ -23,6 +23,7 @@ in
     memphis98
     nwg-menu
     pavucontrol
+    pulsemixer
     wl-clipboard
   ];
 
