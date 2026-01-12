@@ -11,7 +11,6 @@ in
     enable = true;
     settings = {
       main = {
-        font = "JetBrainsMono Nerd Font Mono:size=9";
         include = "${foot-theme}";
       };
       cursor = {
