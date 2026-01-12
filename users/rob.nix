@@ -5,6 +5,7 @@ let
 in
 {
   imports = [
+    ../apps/htop.nix
     ../config/qt.nix
     ../config/gtk.nix
   ];

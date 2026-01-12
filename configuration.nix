@@ -55,7 +55,6 @@
   programs.nix-ld.enable = true;
   environment.systemPackages = with pkgs; [
     helix
-    htop
     inotify-tools
     nil
     nixfmt-rfc-style

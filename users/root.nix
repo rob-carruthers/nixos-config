@@ -3,6 +3,7 @@
 {
   imports = [
     ../apps/helix.nix
+    ../apps/htop.nix
     ../apps/starship.nix
   ];
   home.username = "root";
