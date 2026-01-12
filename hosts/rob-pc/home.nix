@@ -10,6 +10,7 @@
       ../../apps/kanshi.nix
       ../../apps/labwc.nix
       ../../apps/mpd.nix
+      ../../apps/pcmanfm-qt.nix
       ../../apps/starship.nix
       ../../apps/tmux.nix
       ../../apps/waybar.nix

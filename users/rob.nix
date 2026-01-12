@@ -15,7 +15,6 @@ in
 
   home.packages = with pkgs; [
     gvfs
-    lxqt.pcmanfm-qt
     memphis98
     nwg-menu
     pavucontrol
