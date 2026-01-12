@@ -19,13 +19,13 @@
     qt.qt5ctSettings = {
       Fonts = {
         fixed = "\"JetBrainsMono Nerd Font Mono,9\"";
-        general = "\"Noto Sans Regular,10\"";
+        general = "\"Noto Sans Regular,9\"";
       };
     };
     qt.qt6ctSettings = {
       Fonts = {
         fixed = "\"JetBrainsMono Nerd Font Mono,9\"";
-        general = "\"Noto Sans Regular,12\"";
+        general = "\"Noto Sans Regular,9\"";
       };
     };
 
