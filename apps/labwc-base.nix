@@ -29,14 +29,14 @@
             "@key" = "W-d";
             action = {
               "@name" = "Execute";
-              "@command" = "wofi --show drun";
+              "@command" = "wofi -m -I --show drun";
             };
           }
           {
             "@key" = "W-r";
             action = {
               "@name" = "Execute";
-              "@command" = "wofi --show run";
+              "@command" = "wofi -m -I --show run";
             };
           }
           {
