@@ -31,6 +31,8 @@
     wayland.windowManager.labwc.environment = [
       "XKB_DEFAULT_LAYOUT=us"
     ];
+
+    custom.waybar.fontSizePx = 11;
   };
   home-manager.users.root = {
     imports = [
