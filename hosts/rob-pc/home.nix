@@ -8,13 +8,15 @@
       ../../apps/foot.nix
       ../../apps/helix.nix
       ../../apps/kanshi.nix
-      ../../apps/labwc.nix
+      ../../apps/labwc-base.nix
       ../../apps/mpd.nix
       ../../apps/pcmanfm-qt.nix
       ../../apps/starship.nix
       ../../apps/tmux.nix
       ../../apps/waybar.nix
       ../../apps/wofi.nix
+
+      ./labwc.nix
     ];
     qt.qt5ctSettings = {
       Fonts = {
@@ -28,9 +30,6 @@
         general = "\"Noto Sans Regular,8\"";
       };
     };
-    wayland.windowManager.labwc.environment = [
-      "XKB_DEFAULT_LAYOUT=us"
-    ];
 
     custom.waybar.fontSizePx = 11;
 
