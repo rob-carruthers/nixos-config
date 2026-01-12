@@ -11,6 +11,7 @@
 
 {
   imports = [
+    ./battery-conservative.nix
     ./boot.nix
     ./hardware-configuration.nix
     ./home.nix
