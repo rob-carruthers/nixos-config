@@ -5,6 +5,7 @@
 {
   config,
   pkgs,
+  unstablePkgs,
   ...
 }:
 
@@ -50,6 +51,7 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
+  programs.nix-ld.enable = true;
   environment.systemPackages = with pkgs; [
     helix
     htop
@@ -57,6 +59,9 @@
     nil
     nixfmt-rfc-style
     ripgrep
+    unstablePkgs.ruff
+    unstablePkgs.ty
+    uv
     wget
   ];
 
