@@ -8,6 +8,11 @@ in
   home.homeDirectory = "/home/rob";
   home.stateVersion = "25.11";
 
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+  };
+
   home.packages = with pkgs; [
     gvfs
     lxqt.pcmanfm-qt
