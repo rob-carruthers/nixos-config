@@ -14,6 +14,7 @@
     ./boot.nix
     ./hardware-configuration.nix
     ./home.nix
+    ./monitor-switch.nix
   ];
 
   nixpkgs.config = {
