@@ -15,6 +15,7 @@
     ./hardware-configuration.nix
     ./home.nix
     ./monitor-switch.nix
+    ./video.nix
   ];
 
   nixpkgs.config = {
