@@ -20,6 +20,7 @@ in
   };
 
   home.packages = with pkgs; [
+    brightnessctl
     gvfs
     memphis98
     nwg-menu
