@@ -22,7 +22,6 @@
     "memmap=0x10000$0x0002ec1437d0"
     "memmap=0x100000$0x002ee143950"
     "threadirqs"
-    "quiet"
   ];
 
   boot.blacklistedKernelModules = [

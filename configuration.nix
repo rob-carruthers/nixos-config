@@ -17,6 +17,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./config/audio.nix
+    ./config/boot.nix
     ./config/fonts.nix
     ./config/inputrc.nix
     ./config/video.nix
