@@ -44,14 +44,15 @@
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  # environment.systemPackages = with pkgs; [
-  #   helix
-  #   htop
-  #   inotify-tools
-  #   nixfmt-rfc-style
-  #   ripgrep
-  #   wget
-  # ];
+  environment.systemPackages = with pkgs; [
+    acpi
+    #   helix
+    #   htop
+    #   inotify-tools
+    #   nixfmt-rfc-style
+    #   ripgrep
+    #   wget
+  ];
 
   services.openssh.enable = true;
 
