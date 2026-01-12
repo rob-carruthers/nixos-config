@@ -33,6 +33,13 @@
             };
           }
           {
+            "@key" = "W-e";
+            action = {
+              "@name" = "Execute";
+              "@command" = "pcmanfm-qt";
+            };
+          }
+          {
             "@key" = "W-r";
             action = {
               "@name" = "Execute";
