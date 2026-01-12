@@ -14,6 +14,24 @@
         path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
   '';
 
+  boot.kernelParams = [
+    "audit=0"
+    "mitigations=off"
+    "usbcore.autosuspend=-1"
+    "ipv6.disable=1"
+    "memmap=0x10000$0x0002ec1437d0"
+    "memmap=0x100000$0x002ee143950"
+    "threadirqs"
+    "quiet"
+  ];
+
+  boot.blacklistedKernelModules = [
+    "nouveau"
+    "pcspkr"
+    "snd_hda_codec_hdmi"
+    "snd_hda_intel"
+  ];
+
   fileSystems."/mnt/data.disk" = {
     device = "/dev/disk/by-uuid/E4888080888052CA";
     fsType = "ntfs3";
