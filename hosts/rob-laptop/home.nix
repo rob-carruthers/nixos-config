@@ -31,7 +31,7 @@
 
     custom.waybar.fontSizePx = 14;
 
-    programs.foot.settings.main.font = "JetBrainsMono Nerd Font Mono:size=9";
+    programs.foot.settings.main.font = "JetBrainsMono Nerd Font Mono:size=12";
   };
 
   home-manager.users.root = {
