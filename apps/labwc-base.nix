@@ -22,7 +22,7 @@
             "@key" = "W-Return";
             action = {
               "@name" = "Execute";
-              "@command" = "foot";
+              "@command" = "foot tmux";
             };
           }
           {
@@ -138,31 +138,5 @@
         };
       };
     };
-
-    # extraConfig = ''
-    #   <keyboard>
-    #     <keybind key="W-XF86_Tools">
-    #       <action name="Execute" command="mpc prev" />
-    #     </keybind>
-    #     <keybind key="W-XF86_Launch5">
-    #       <action name="Execute" command="mpc toggle" />
-    #     </keybind>
-    #     <keybind key="W-XF86_Launch6">
-    #       <action name="Execute" command="mpc next" />
-    #     </keybind>
-    #     <keybind key="W-XF86_Launch8">
-    #       <action name="Execute" command="ario" />
-    #     </keybind>
-    #     <keybind key="W-Print">
-    #       <action name="Execute" command="pulsemixer --change-volume +2" />
-    #     </keybind>
-    #     <keybind key="W-Menu">
-    #       <action name="Execute" command="pulsemixer --change-volume -2" />
-    #     </keybind>
-    #     <keybind key="W-Scroll_Lock">
-    #       <action name="Execute" command="pulsemixer --toggle-mute" />
-    #     </keybind>
-    #   </keyboard>
-    # '';
   };
 }
