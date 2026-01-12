@@ -1,5 +1,3 @@
-{ config, lib, ... }:
-
 {
   wayland.windowManager.labwc = {
     environment = [
