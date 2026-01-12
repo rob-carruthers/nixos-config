@@ -4,6 +4,7 @@
     autostart = [
       "kanshi &"
       "waybar &"
+      "pcmanfm-qt --desktop &"
     ];
     rc = {
       theme = {
