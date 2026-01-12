@@ -43,6 +43,25 @@
             home-manager.nixosModules.home-manager
           ];
         };
+        rob-laptop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit unstablePkgs;
+          };
+          modules = [
+            ./configuration.nix
+            ./hosts/rob-laptop/configuration.nix
+            {
+              nix = {
+                settings.experimental-features = [
+                  "nix-command"
+                  "flakes"
+                ];
+              };
+            }
+            home-manager.nixosModules.home-manager
+          ];
+        };
       };
     };
 }
