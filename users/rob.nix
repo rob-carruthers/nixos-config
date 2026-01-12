@@ -4,6 +4,11 @@ let
   memphis98 = import ../themes/memphis98.nix { inherit pkgs; };
 in
 {
+  imports = [
+    ../config/qt.nix
+    ../config/gtk.nix
+  ];
+
   home.username = "rob";
   home.homeDirectory = "/home/rob";
   home.stateVersion = "25.11";
@@ -34,26 +39,4 @@ in
     };
   };
 
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Memphis98";
-      package = memphis98;
-    };
-  };
-
-  qt = {
-    enable = true;
-    platformTheme.name = "qtct";
-    qt5ctSettings = {
-      Appearance = {
-        icon_theme = "Memphis98";
-      };
-    };
-    qt6ctSettings = {
-      Appearance = {
-        icon_theme = "Memphis98";
-      };
-    };
-  };
 }
