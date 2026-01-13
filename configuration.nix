@@ -52,6 +52,7 @@
     nil
     nixfmt-rfc-style
     ripgrep
+    squashfsTools
     unstablePkgs.ruff
     unstablePkgs.ty
     uv
