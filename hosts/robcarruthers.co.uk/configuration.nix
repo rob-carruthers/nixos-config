@@ -16,8 +16,10 @@
     ./home.nix
   ];
 
-  networking.hostName = "robcarruthers.co.uk"; # Define your hostname.
-
+  networking.hostName = "robcarruthers"; # Define your hostname.
+  networking.extraHosts = ''
+    213.165.84.232 robcarruthers.co.uk robcarruthers.com
+  '';
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
