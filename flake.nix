@@ -62,6 +62,25 @@
             home-manager.nixosModules.home-manager
           ];
         };
+        "robcarruthers.co.uk" = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit unstablePkgs;
+          };
+          modules = [
+            ./configuration.nix
+            ./hosts/robcarruthers.co.uk/configuration.nix
+            {
+              nix = {
+                settings.experimental-features = [
+                  "nix-command"
+                  "flakes"
+                ];
+              };
+            }
+            home-manager.nixosModules.home-manager
+          ];
+        };
       };
     };
 }
