@@ -24,10 +24,6 @@
     ./services/avahi.nix
   ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.limine.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
 

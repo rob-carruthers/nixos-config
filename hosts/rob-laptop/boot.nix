@@ -1,4 +1,6 @@
 {
+  boot.loader.limine.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.limine.extraEntries = ''
     /Arch Linux Install Media
         protocol: linux
