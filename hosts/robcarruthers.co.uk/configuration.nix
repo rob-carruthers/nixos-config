@@ -53,7 +53,11 @@
   services.openssh = {
     enable = true;
     ports = [ 10355 ];
-    settings.PasswordAuthentication = false;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+    };
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
