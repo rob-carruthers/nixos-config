@@ -49,6 +49,7 @@
   environment.systemPackages = with pkgs; [
     helix
     inotify-tools
+    ncdu
     nil
     nixfmt-rfc-style
     ripgrep
