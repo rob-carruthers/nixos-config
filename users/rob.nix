@@ -1,10 +1,6 @@
-{ pkgs, ... }:
-
-let
-  memphis98 = import ../themes/memphis98.nix { inherit pkgs; };
-in
 {
   imports = [
+    ../apps/helix.nix
     ../apps/htop.nix
     ../apps/starship.nix
     ../config/qt.nix
@@ -20,18 +16,7 @@ in
     createDirectories = true;
   };
 
-  home.packages = with pkgs; [
-    brightnessctl
-    gvfs
-    memphis98
-    nwg-menu
-    pavucontrol
-    pulsemixer
-    wl-clipboard
-  ];
-
   programs.bash.enable = true;
-  programs.firefox.enable = true;
   programs.git.enable = true;
   programs.lazygit = {
     enable = true;

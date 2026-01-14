@@ -5,13 +5,9 @@
     imports = [
       ../../users/rob.nix
 
-      ../../apps/foot.nix
-      ../../apps/helix.nix
-      ../../apps/labwc-base.nix
-      ../../apps/pcmanfm-qt.nix
+      ../../desktops/labwc.nix
+
       ../../apps/tmux.nix
-      ../../apps/waybar.nix
-      ../../apps/wofi.nix
 
       ./labwc.nix
     ];

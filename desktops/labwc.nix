@@ -1,4 +1,27 @@
+{ pkgs, ... }:
+
+let
+  memphis98 = import ../themes/memphis98.nix { inherit pkgs; };
+in
 {
+  imports = [
+    ../apps/firefox.nix
+    ../apps/foot.nix
+    ../apps/pcmanfm-qt.nix
+    ../apps/waybar.nix
+    ../apps/wofi.nix
+  ];
+
+  home.packages = with pkgs; [
+    brightnessctl
+    gvfs
+    memphis98
+    nwg-menu
+    pavucontrol
+    pulsemixer
+    wl-clipboard
+  ];
+
   wayland.windowManager.labwc = {
     enable = true;
     autostart = [
