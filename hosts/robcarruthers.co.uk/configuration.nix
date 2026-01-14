@@ -11,32 +11,22 @@
 
 {
   imports = [
-    ../../config/audio.nix
-    ../../config/fonts.nix
-    ../../config/video.nix
-
     ./boot.nix
     ./hardware-configuration.nix
     ./home.nix
-    ./monitor-switch.nix
-    ./video.nix
   ];
 
-  nixpkgs.config = {
-    permittedInsecurePackages = [
-      "libsoup-2.74.3"
-    ];
-  };
-
-  networking.hostName = "rob-pc"; # Define your hostname.
-
+  networking.hostName = "robcarruthers"; # Define your hostname.
+  networking.extraHosts = ''
+    213.165.84.232 robcarruthers.co.uk robcarruthers.com
+  '';
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  # services.xserver.videoDrivers = [ "nvidia" ];
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -60,7 +50,11 @@
   #   wget
   # ];
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    ports = [ 10355 ];
+    settings.PasswordAuthentication = false;
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

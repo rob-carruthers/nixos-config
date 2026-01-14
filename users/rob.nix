@@ -6,6 +6,7 @@ in
 {
   imports = [
     ../apps/htop.nix
+    ../apps/starship.nix
     ../config/qt.nix
     ../config/gtk.nix
   ];

@@ -16,11 +16,8 @@
 
   imports = [
     # Include the results of the hardware scan.
-    ./config/audio.nix
     ./config/boot.nix
-    ./config/fonts.nix
     ./config/inputrc.nix
-    ./config/video.nix
     ./services/avahi.nix
   ];
 
@@ -61,9 +58,6 @@
     uv
     wget
   ];
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

@@ -11,7 +11,6 @@
       ../../apps/labwc-base.nix
       ../../apps/mpd.nix
       ../../apps/pcmanfm-qt.nix
-      ../../apps/starship.nix
       ../../apps/tmux.nix
       ../../apps/waybar.nix
       ../../apps/wofi.nix
