@@ -17,6 +17,7 @@
 
     ./battery-conservative.nix
     ./boot.nix
+    ./environment.nix
     ./hardware-configuration.nix
     ./home.nix
     ./video.nix

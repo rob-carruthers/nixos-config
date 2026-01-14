@@ -16,6 +16,7 @@
     ../../config/video.nix
 
     ./boot.nix
+    ./environment.nix
     ./hardware-configuration.nix
     ./home.nix
     ./monitor-switch.nix
