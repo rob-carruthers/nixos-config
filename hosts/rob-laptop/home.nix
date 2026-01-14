@@ -15,6 +15,12 @@
 
       ./labwc.nix
     ];
+
+    gtk.font = {
+      name = "Noto Sans Regular";
+      size = 9;
+    };
+
     qt.qt5ctSettings = {
       Fonts = {
         fixed = "\"JetBrainsMono Nerd Font Mono,9\"";
