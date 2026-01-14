@@ -11,6 +11,10 @@
 
 {
   imports = [
+    ../../config/audio.nix
+    ../../config/fonts.nix
+    ../../config/video.nix
+
     ./boot.nix
     ./hardware-configuration.nix
     ./home.nix
