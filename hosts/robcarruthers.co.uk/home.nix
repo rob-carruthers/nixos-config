@@ -5,7 +5,6 @@
     imports = [
       ../../users/rob.nix
 
-      ../../apps/helix.nix
       ../../apps/tmux.nix
     ];
   };
