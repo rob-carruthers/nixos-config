@@ -53,8 +53,7 @@
   services.openssh = {
     enable = true;
     ports = [ 10355 ];
-    # TODO - remove password auth when setup is complete
-    settings.PasswordAuthentication = true;
+    settings.PasswordAuthentication = false;
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
