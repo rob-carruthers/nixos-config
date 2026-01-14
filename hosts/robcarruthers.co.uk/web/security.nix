@@ -16,6 +16,7 @@
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
+      LogLevel = "VERBOSE";
     };
   };
   services.fail2ban = {
