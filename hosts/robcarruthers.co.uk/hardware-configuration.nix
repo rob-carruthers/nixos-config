@@ -26,7 +26,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/mapper/ubuntu--vg-nixos";
+    device = "/dev/mapper/nixos--vg-nixos";
     fsType = "ext4";
   };
 
