@@ -42,6 +42,12 @@
     #   ];
   };
 
+  programs.bash = {
+    enable = true;
+    interactiveShellInit = "eval $(starship init bash)";
+    loginShellInit = "eval $(starship init bash)";
+  };
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
