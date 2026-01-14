@@ -14,6 +14,8 @@
     ./boot.nix
     ./hardware-configuration.nix
     ./home.nix
+    ./web/nginx.nix
+    ./web/security.nix
   ];
 
   networking.hostName = "robcarruthers"; # Define your hostname.
