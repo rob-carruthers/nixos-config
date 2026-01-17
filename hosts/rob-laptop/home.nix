@@ -7,6 +7,7 @@
 
       ../../desktops/labwc.nix
 
+      ../../apps/openttd-jgrpp.nix
       ../../apps/tmux.nix
 
       ./labwc.nix

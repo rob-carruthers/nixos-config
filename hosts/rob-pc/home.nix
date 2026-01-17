@@ -9,6 +9,7 @@
 
       ../../apps/kanshi.nix
       ../../apps/mpd.nix
+      ../../apps/openttd-jgrpp.nix
       ../../apps/tmux.nix
 
       ./labwc.nix
