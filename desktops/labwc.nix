@@ -22,6 +22,12 @@ in
     wl-clipboard
   ];
 
+  home.pointerCursor = {
+    enable = true;
+    name = "graphite-dark-nord";
+    package = pkgs.graphite-cursors;
+  };
+
   wayland.windowManager.labwc = {
     enable = true;
     autostart = [
