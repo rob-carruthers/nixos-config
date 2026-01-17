@@ -124,7 +124,7 @@ in
           };
           "network" = {
             "format" = "{ifname}";
-            "format-wifi" = " ";
+            "format-wifi" = "";
             "format-ethernet" = "󰊗 ";
             "format-disconnected" = " ";
             "tooltip-format" = "{ifname} via {gwaddr} 󰊗";
