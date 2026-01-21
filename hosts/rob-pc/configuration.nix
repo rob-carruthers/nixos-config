@@ -10,6 +10,8 @@
     ./home.nix
     ./monitor-switch.nix
     ./video.nix
+
+    ../../apps/mullvad.nix
   ];
 
   nixpkgs.config = {

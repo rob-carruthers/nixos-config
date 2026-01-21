@@ -12,6 +12,8 @@
     ./hardware-configuration.nix
     ./home.nix
     ./video.nix
+
+    ../../apps/mullvad.nix
   ];
 
   networking.hostName = "rob-laptop";
