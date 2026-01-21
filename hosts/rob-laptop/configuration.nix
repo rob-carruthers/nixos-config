@@ -32,4 +32,5 @@
   ];
 
   services.openssh.enable = true;
+  services.resolved.enable = true;
 }
