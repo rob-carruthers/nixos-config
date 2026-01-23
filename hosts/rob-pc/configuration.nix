@@ -2,6 +2,7 @@
   imports = [
     ../../config/audio.nix
     ../../config/fonts.nix
+    ../../config/supercollider.nix
     ../../config/video.nix
 
     ./boot.nix

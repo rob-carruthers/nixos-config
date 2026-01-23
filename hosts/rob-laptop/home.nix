@@ -8,6 +8,7 @@
       ../../desktops/labwc.nix
 
       ../../apps/openttd-jgrpp.nix
+      ../../apps/supercollider.nix
       ../../apps/tmux.nix
 
       ./labwc.nix
