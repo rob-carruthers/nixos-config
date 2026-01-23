@@ -9,6 +9,7 @@
 
       ../../apps/openttd-jgrpp.nix
       ../../apps/supercollider.nix
+      ../../apps/syncthing.nix
       ../../apps/tmux.nix
 
       ./labwc.nix
