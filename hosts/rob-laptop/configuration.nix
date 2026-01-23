@@ -1,6 +1,12 @@
 { pkgs, ... }:
 
 {
+  nixpkgs.config = {
+    permittedInsecurePackages = [
+      "qtwebengine-5.15.19"
+    ];
+  };
+
   imports = [
     ../../config/audio.nix
     ../../config/fonts.nix

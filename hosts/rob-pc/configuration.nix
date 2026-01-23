@@ -1,4 +1,11 @@
 {
+  nixpkgs.config = {
+    permittedInsecurePackages = [
+      "libsoup-2.74.3"
+      "qtwebengine-5.15.19"
+    ];
+  };
+
   imports = [
     ../../config/audio.nix
     ../../config/fonts.nix
@@ -14,12 +21,6 @@
 
     ../../apps/mullvad.nix
   ];
-
-  nixpkgs.config = {
-    permittedInsecurePackages = [
-      "libsoup-2.74.3"
-    ];
-  };
 
   networking.hostName = "rob-pc";
 
