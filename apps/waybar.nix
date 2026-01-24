@@ -320,7 +320,7 @@ in
             background-origin: content-box;
         }
 
-        #network {
+        #network, #tray {
             padding: 5px 5px;
             margin: 5px 3px;
             background-color: #c0c0c0;
