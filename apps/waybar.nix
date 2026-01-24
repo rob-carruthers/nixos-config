@@ -73,7 +73,7 @@ in
               ""
             ];
           };
-          "racklight" = {
+          "backlight" = {
             "format" = "{percent}% {icon} ";
             "format-icons" = [
               "󰌶"
