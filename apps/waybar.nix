@@ -223,15 +223,6 @@ in
             box-shadow: 1px 1px 1px 0px #000000;
         }
 
-        /* #custom-start:hover { */
-            /* background: url('/etc/profiles/per-user/rob/share/icons/Memphis98/places/48/start-here.png'); */
-            /* background-position: left; */
-            /* background-repeat: no-repeat; */
-            /* background-size: contain; */
-            /* box-shadow: 0px 0px 0px; */
-            /* text-shadow: none; */
-        /* } */
-
         #custom-start:active {
             background: url('/etc/profiles/per-user/rob/share/icons/Memphis98/places/48/start-here.png');
             background-position: left;
@@ -261,7 +252,6 @@ in
             border-top: 1px solid #ffffff;
             border-bottom: 1px solid #404040;
             box-shadow: 1px 1px 1px 0px #000000;
-            /* background-image: url('/etc/profiles/per-user/rob/share/icons/Memphis98/devices/48/battery.png'); */
             background-position: right;
             background-size: 30%;
             background-repeat: no-repeat;
@@ -278,7 +268,6 @@ in
             border-top: 1px solid #ffffff;
             border-bottom: 1px solid #404040;
             box-shadow: 1px 1px 1px 0px #000000;
-            /* background-image: url('/etc/profiles/per-user/rob/share/icons/Memphis98/status/48/sunny.png'); */
             background-position: right;
             background-size: 30%;
             background-repeat: no-repeat;
@@ -313,7 +302,6 @@ in
             border-top: 1px solid #ffffff;
             border-bottom: 1px solid #404040;
             box-shadow: 1px 1px 1px 0px #000000;
-            /* background-image: url('/etc/profiles/per-user/rob/share/icons/Memphis98/status/48/audio-volume-high.png'); */
             background-position: right;
             background-size: 30%;
             background-repeat: no-repeat;
@@ -330,7 +318,6 @@ in
             border-top: 1px solid #ffffff;
             border-bottom: 1px solid #404040;
             box-shadow: 1px 1px 1px 0px #000000;
-            /* background-image: url('/etc/profiles/per-user/rob/share/icons/Memphis98/devices/48/computer-laptop.png'); */
             background-position: right;
             background-size: 30%;
             background-repeat: no-repeat;
