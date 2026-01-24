@@ -1,5 +1,6 @@
 {
   imports = [
+    ../apps/direnv.nix
     ../apps/helix.nix
     ../apps/htop.nix
     ../apps/starship.nix
@@ -25,6 +26,11 @@
         editAtLine = "hx {{filename}}:{{line}}";
       };
     };
+  };
+
+  programs.bash = {
+    enable = true;
+    initExtra = "eval \"$(direnv hook bash)\"";
   };
 
 }
