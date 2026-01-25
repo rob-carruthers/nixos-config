@@ -42,7 +42,7 @@
 
     programs.tmux.extraConfig = lib.mkAfter ''
       set -g @nova-segment-battery "#(acpi)"
-      set -g @nova-segment-battery-colors "#78a2c1 #2e3440"
+      set -g @nova-segment-battery-colors "#81a1c1 #2e3440"
 
       set -g @nova-segments-0-left ""
       set -g @nova-segments-0-right "battery clock"
