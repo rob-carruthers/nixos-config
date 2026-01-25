@@ -40,6 +40,7 @@
   environment.systemPackages = with pkgs; [
     helix
     inotify-tools
+    lm_sensors
     ncdu
     nil
     nixfmt-rfc-style
