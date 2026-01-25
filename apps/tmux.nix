@@ -18,6 +18,7 @@
       set -g @nova-nerdfonts-left 
       set -g @nova-nerdfonts-right 
 
+      set -g status-interval 10
       set -g status-left-length 100
       set -g status-right-length 100
       set -g @nova-rows 0
