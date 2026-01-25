@@ -41,7 +41,7 @@
     programs.foot.settings.main.font = "JetBrainsMono Nerd Font Mono:size=12";
 
     programs.tmux.extraConfig = lib.mkAfter ''
-      set -g @nova-segment-battery "#(acpi)"
+      set -g @nova-segment-battery "#(acpi | sed 's/Battery 0: //g')"
       set -g @nova-segment-battery-colors "#81a1c1 #2e3440"
 
       set -g @nova-segments-0-left ""
