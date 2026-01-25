@@ -34,6 +34,7 @@ in
       "kanshi &"
       "waybar &"
       "pcmanfm-qt --desktop &"
+      "if ! tmux has-session -t main 2>/dev/null; then tmux new-session -d -s main; fi"
     ];
     rc = {
       theme = {
@@ -51,7 +52,7 @@ in
             "@key" = "W-Return";
             action = {
               "@name" = "Execute";
-              "@command" = "foot tmux";
+              "@command" = "sh -c 'foot tmux attach -t main || foot tmux new-session -s main'";
             };
           }
           {
