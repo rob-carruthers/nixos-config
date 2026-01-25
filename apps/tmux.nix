@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   cputempScript = pkgs.writeShellScript "cputemp.sh" ''
     #!${pkgs.stdenv.shell}
@@ -51,4 +51,7 @@ in
       set -g @nova-segment-cputemp-colors "#be9db8 #2e3440"
     '';
   };
+  home.file.".tmux.conf".text = ''
+    source-file ${config.home.homeDirectory}/.config/tmux/tmux.conf
+  '';
 }
