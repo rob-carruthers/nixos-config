@@ -7,6 +7,7 @@
 
       ../../desktops/labwc.nix
 
+      ../../apps/augustus.nix
       ../../apps/kanshi.nix
       ../../apps/mpd.nix
       ../../apps/openttd-jgrpp.nix

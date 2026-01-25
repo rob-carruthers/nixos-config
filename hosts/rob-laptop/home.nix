@@ -7,6 +7,7 @@
 
       ../../desktops/labwc.nix
 
+      ../../apps/augustus.nix
       ../../apps/openttd-jgrpp.nix
       ../../apps/supercollider.nix
       ../../apps/syncthing.nix
