@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
@@ -39,6 +41,11 @@
     custom.waybar.fontSizePx = 11;
 
     programs.foot.settings.main.font = "JetBrainsMono Nerd Font Mono:size=9";
+
+    programs.tmux.extraConfig = lib.mkAfter ''
+      set -g @nova-segments-0-left ""
+      set -g @nova-segments-0-right "clock"
+    '';
   };
 
   home-manager.users.root = {
