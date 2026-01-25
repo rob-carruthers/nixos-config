@@ -4,10 +4,11 @@ let
     #!${pkgs.stdenv.shell}
 
     sensors k10temp-* 2>/dev/null | awk '
-      /Tccd1/ {
-        gsub(/[^0-9.]/, "", $2)
-        printf "%d°C", int($2+0.5)
-        exit
+      /Tccd1/ { temp=$2; found=1 }
+      /Tctl/ && !found { temp=$2 }
+      END {
+        gsub(/[^0-9.]/, "", temp)
+        printf "%d°C", int(temp+0.5)
       }'
   '';
 in
