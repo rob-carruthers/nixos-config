@@ -34,7 +34,7 @@ in
       "kanshi &"
       "waybar &"
       "pcmanfm-qt --desktop &"
-      "if ! tmux has-session -t main 2>/dev/null; then tmux new-session -d -s main; fi"
+      "sh -c 'tmux has-session -t main 2>/dev/null || tmux new-session -d -s main; exec tmux attach -t main || (sleep 1; exec $0)' &"
     ];
     rc = {
       theme = {
