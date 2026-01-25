@@ -45,7 +45,7 @@
       set -g @nova-segment-battery-colors "#81a1c1 #2e3440"
 
       set -g @nova-segments-0-left ""
-      set -g @nova-segments-0-right "battery clock"
+      set -g @nova-segments-0-right "cputemp battery clock"
     '';
   };
 

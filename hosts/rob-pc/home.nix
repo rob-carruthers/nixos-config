@@ -44,7 +44,7 @@
 
     programs.tmux.extraConfig = lib.mkAfter ''
       set -g @nova-segments-0-left ""
-      set -g @nova-segments-0-right "clock"
+      set -g @nova-segments-0-right "cputemp clock"
     '';
   };
 
