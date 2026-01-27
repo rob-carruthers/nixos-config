@@ -6,6 +6,7 @@ in
 {
   gtk = {
     enable = true;
+    font.name = "Noto Sans Regular";
     iconTheme = {
       name = "Memphis98";
       package = memphis98;

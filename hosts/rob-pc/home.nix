@@ -21,7 +21,6 @@
     ];
 
     gtk.font = {
-      name = "Noto Sans Regular";
       size = 8;
     };
 
