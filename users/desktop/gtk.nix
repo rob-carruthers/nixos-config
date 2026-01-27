@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  memphis98 = import ../themes/memphis98.nix { inherit pkgs; };
+  memphis98 = import ../../themes/memphis98.nix { inherit pkgs; };
 in
 {
   gtk = {
