@@ -20,66 +20,33 @@
       unstablePkgs = import nixpkgs-unstable {
         inherit system;
       };
+      mkNixosConfig =
+        name:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit unstablePkgs;
+          };
+          modules = [
+            ./configuration.nix
+            ./hosts/${name}/configuration.nix
+            {
+              nix = {
+                settings.experimental-features = [
+                  "nix-command"
+                  "flakes"
+                ];
+              };
+            }
+            home-manager.nixosModules.home-manager
+          ];
+        };
     in
     {
       nixosConfigurations = {
-        rob-pc = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit unstablePkgs;
-          };
-          modules = [
-            ./configuration.nix
-            ./hosts/rob-pc/configuration.nix
-            {
-              nix = {
-                settings.experimental-features = [
-                  "nix-command"
-                  "flakes"
-                ];
-              };
-            }
-            home-manager.nixosModules.home-manager
-          ];
-        };
-        rob-laptop = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit unstablePkgs;
-          };
-          modules = [
-            ./configuration.nix
-            ./hosts/rob-laptop/configuration.nix
-            {
-              nix = {
-                settings.experimental-features = [
-                  "nix-command"
-                  "flakes"
-                ];
-              };
-            }
-            home-manager.nixosModules.home-manager
-          ];
-        };
-        "robcarruthers.co.uk" = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit unstablePkgs;
-          };
-          modules = [
-            ./configuration.nix
-            ./hosts/robcarruthers.co.uk/configuration.nix
-            {
-              nix = {
-                settings.experimental-features = [
-                  "nix-command"
-                  "flakes"
-                ];
-              };
-            }
-            home-manager.nixosModules.home-manager
-          ];
-        };
+        rob-pc = mkNixosConfig "rob-pc";
+        rob-laptop = mkNixosConfig "rob-laptop";
+        "robcarruthers.co.uk" = mkNixosConfig "robcarruthers.co.uk";
       };
     };
 }
