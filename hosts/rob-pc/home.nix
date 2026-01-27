@@ -4,7 +4,6 @@ let
   font-sizes = {
     regular = 8;
     mono = 9;
-    foot = 9;
   };
 in
 {

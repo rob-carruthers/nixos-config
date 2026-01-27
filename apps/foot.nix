@@ -12,7 +12,7 @@ in
     settings = {
       main = {
         include = "${foot-theme}";
-        font = "JetBrainsMono Nerd Font Mono:size=${toString font-sizes.foot}";
+        font = "JetBrainsMono Nerd Font Mono:size=${toString font-sizes.mono}";
       };
       cursor = {
         style = "beam";
