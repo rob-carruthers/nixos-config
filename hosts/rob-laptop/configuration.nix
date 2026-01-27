@@ -40,7 +40,4 @@
   environment.systemPackages = with pkgs; [
     acpi
   ];
-
-  services.openssh.enable = true;
-  services.resolved.enable = true;
 }

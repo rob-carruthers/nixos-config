@@ -12,7 +12,7 @@
   imports = [
     ./config/boot.nix
     ./config/inputrc.nix
-    ./services/avahi.nix
+    ./services
   ];
 
   networking.networkmanager.enable = true;

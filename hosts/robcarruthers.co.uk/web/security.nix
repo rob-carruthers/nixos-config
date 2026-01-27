@@ -10,7 +10,6 @@
     defaults.email = "robmcarruthers@gmail.com";
   };
   services.openssh = {
-    enable = true;
     ports = [ 10355 ];
     settings = {
       PasswordAuthentication = false;
