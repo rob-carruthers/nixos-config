@@ -1,3 +1,5 @@
+{ pkgs, font-sizes, ... }:
+
 {
   imports = [
     ../apps/direnv.nix
@@ -5,7 +7,10 @@
     ../apps/htop.nix
     ../apps/starship.nix
     ./desktop/qt.nix
-    ./desktop/gtk.nix
+    (import ./desktop/gtk.nix {
+      pkgs = pkgs;
+      font-sizes = font-sizes;
+    })
   ];
 
   home.username = "rob";

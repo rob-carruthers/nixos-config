@@ -1,11 +1,20 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
+let
+  font-sizes = {
+    regular = 8;
+    mono = 9;
+  };
+in
 {
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.rob = {
     imports = [
-      ../../users/rob.nix
+      (import ../../users/rob.nix {
+        pkgs = pkgs;
+        font-sizes = font-sizes;
+      })
 
       ../../desktops/labwc.nix
 
