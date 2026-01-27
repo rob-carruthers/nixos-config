@@ -39,6 +39,14 @@
               };
             }
             home-manager.nixosModules.home-manager
+            (
+              { ... }:
+              {
+                nixpkgs.overlays = [
+                  (import ./overlays/memphis98.nix)
+                ];
+              }
+            )
           ];
         };
     in

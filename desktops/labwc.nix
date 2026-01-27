@@ -1,8 +1,5 @@
 { pkgs, font-sizes, ... }:
 
-let
-  memphis98 = import ../themes/memphis98.nix { inherit pkgs; };
-in
 {
   imports = [
     ../apps/firefox.nix
