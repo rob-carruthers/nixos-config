@@ -4,8 +4,8 @@
     ../apps/helix.nix
     ../apps/htop.nix
     ../apps/starship.nix
-    ../config/qt.nix
-    ../config/gtk.nix
+    ./desktop/qt.nix
+    ./desktop/gtk.nix
   ];
 
   home.username = "rob";
