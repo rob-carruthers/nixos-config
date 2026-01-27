@@ -1,6 +1,4 @@
 {
-  boot.loader.efi.canTouchEfiVariables = true;
-
   boot.loader.limine = {
     enable = true;
     extraEntries = ''
@@ -20,18 +18,12 @@
   };
 
   boot.kernelParams = [
-    "audit=0"
-    "mitigations=off"
     "usbcore.autosuspend=-1"
-    "ipv6.disable=1"
     "memmap=0x10000$0x0002ec1437d0"
     "memmap=0x100000$0x002ee143950"
-    "threadirqs"
   ];
 
   boot.blacklistedKernelModules = [
-    "nouveau"
-    "pcspkr"
     "snd_hda_codec_hdmi"
     "snd_hda_intel"
   ];

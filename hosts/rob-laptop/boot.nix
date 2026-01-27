@@ -1,6 +1,4 @@
 {
-  boot.loader.efi.canTouchEfiVariables = true;
-
   boot.loader.limine = {
     enable = true;
     extraEntries = ''
@@ -15,17 +13,5 @@
           path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
     '';
   };
-
-  boot.kernelParams = [
-    "audit=0"
-    "mitigations=off"
-    "ipv6.disable=1"
-    "threadirqs"
-  ];
-
-  boot.blacklistedKernelModules = [
-    "nouveau"
-    "pcspkr"
-  ];
 
 }
