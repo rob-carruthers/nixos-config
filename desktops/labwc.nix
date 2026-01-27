@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, font-sizes, ... }:
 
 let
   memphis98 = import ../themes/memphis98.nix { inherit pkgs; };
@@ -6,7 +6,10 @@ in
 {
   imports = [
     ../apps/firefox.nix
-    ../apps/foot.nix
+    (import ../apps/foot.nix {
+      pkgs = pkgs;
+      font-sizes = font-sizes;
+    })
     ../apps/pcmanfm-qt.nix
     ../apps/waybar.nix
     ../apps/wofi.nix

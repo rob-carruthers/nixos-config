@@ -3,7 +3,8 @@
 let
   font-sizes = {
     regular = 9;
-    mono = 9;
+    mono = 12;
+    foot = 12;
   };
 in
 {
@@ -16,7 +17,10 @@ in
         font-sizes = font-sizes;
       })
 
-      ../../desktops/labwc.nix
+      (import ../../desktops/labwc.nix {
+        pkgs = pkgs;
+        font-sizes = font-sizes;
+      })
 
       ../../apps/augustus.nix
       ../../apps/openttd-jgrpp.nix
@@ -28,8 +32,6 @@ in
     ];
 
     custom.waybar.fontSizePx = 14;
-
-    programs.foot.settings.main.font = "JetBrainsMono Nerd Font Mono:size=12";
 
     programs.tmux.extraConfig = lib.mkAfter ''
       set -g @nova-segment-battery "#(acpi | sed 's/Battery 0: //g')"

@@ -4,6 +4,7 @@ let
   font-sizes = {
     regular = 8;
     mono = 9;
+    foot = 9;
   };
 in
 {
@@ -16,7 +17,10 @@ in
         font-sizes = font-sizes;
       })
 
-      ../../desktops/labwc.nix
+      (import ../../desktops/labwc.nix {
+        pkgs = pkgs;
+        font-sizes = font-sizes;
+      })
 
       ../../apps/augustus.nix
       ../../apps/kanshi.nix
@@ -30,8 +34,6 @@ in
     ];
 
     custom.waybar.fontSizePx = 11;
-
-    programs.foot.settings.main.font = "JetBrainsMono Nerd Font Mono:size=9";
 
     programs.tmux.extraConfig = lib.mkAfter ''
       set -g @nova-segments-0-left ""

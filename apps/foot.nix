@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, font-sizes, ... }:
 
 let
   foot-theme = pkgs.fetchurl {
@@ -12,6 +12,7 @@ in
     settings = {
       main = {
         include = "${foot-theme}";
+        font = "JetBrainsMono Nerd Font Mono:size=${toString font-sizes.foot}";
       };
       cursor = {
         style = "beam";
