@@ -29,23 +29,6 @@ in
       ./labwc.nix
     ];
 
-    gtk.font = {
-      size = 8;
-    };
-
-    qt.qt5ctSettings = {
-      Fonts = {
-        fixed = "\"JetBrainsMono Nerd Font Mono,9\"";
-        general = "\"Noto Sans Regular,8\"";
-      };
-    };
-    qt.qt6ctSettings = {
-      Fonts = {
-        fixed = "\"JetBrainsMono Nerd Font Mono,9\"";
-        general = "\"Noto Sans Regular,8\"";
-      };
-    };
-
     custom.waybar.fontSizePx = 11;
 
     programs.foot.settings.main.font = "JetBrainsMono Nerd Font Mono:size=9";

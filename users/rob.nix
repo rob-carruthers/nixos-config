@@ -6,9 +6,11 @@
     ../apps/helix.nix
     ../apps/htop.nix
     ../apps/starship.nix
-    ./desktop/qt.nix
     (import ./desktop/gtk.nix {
       pkgs = pkgs;
+      font-sizes = font-sizes;
+    })
+    (import ./desktop/qt.nix {
       font-sizes = font-sizes;
     })
   ];
