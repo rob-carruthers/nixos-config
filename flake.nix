@@ -59,6 +59,7 @@
                 nixpkgs.overlays = [
                   self.overlays.legion-kb-rgb
                   (import ./overlays/memphis98.nix)
+                  (import ./overlays/ch57x-keyboard-tool.nix)
                 ];
               }
             )
