@@ -1,5 +1,8 @@
 {
   wayland.windowManager.labwc = {
+    autostart = [
+      "legion-kb-rgb set -e Static -c 0,0,0,0,0,0,0,0,0,0,0,0 &"
+    ];
     environment = [
       "XKB_DEFAULT_LAYOUT=gb"
       "XCURSOR_THEME=graphite-dark-nord"

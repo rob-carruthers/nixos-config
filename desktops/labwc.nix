@@ -37,7 +37,6 @@
   wayland.windowManager.labwc = {
     enable = true;
     autostart = [
-      "kanshi &"
       "waybar &"
       "pcmanfm-qt --desktop &"
     ];

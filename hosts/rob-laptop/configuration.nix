@@ -39,4 +39,8 @@
   environment.systemPackages = with pkgs; [
     acpi
   ];
+
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTR{idVendor}=="048d", ATTR{idProduct}=="c975", MODE="0666"
+  '';
 }
