@@ -6,13 +6,19 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    legion-kb-rgb = {
+      url = "github:4JX/L5P-Keyboard-RGB";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
+      self,
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
+      legion-kb-rgb,
       ...
     }:
     let
@@ -51,6 +57,7 @@
               { ... }:
               {
                 nixpkgs.overlays = [
+                  self.overlays.legion-kb-rgb
                   (import ./overlays/memphis98.nix)
                 ];
               }
@@ -59,6 +66,10 @@
         };
     in
     {
+      overlays.legion-kb-rgb = final: prev: {
+        legion-kb-rgb = legion-kb-rgb.packages.${final.stdenv.hostPlatform.system}.default;
+      };
+
       nixosConfigurations = {
         rob-pc = mkNixosConfig "rob-pc";
         rob-laptop = mkNixosConfig "rob-laptop";
