@@ -40,7 +40,6 @@
       "kanshi &"
       "waybar &"
       "pcmanfm-qt --desktop &"
-      "sh -c 'tmux has-session -t main 2>/dev/null || tmux new-session -d -s main; exec tmux attach -t main || (sleep 1; exec $0)' &"
     ];
     rc = {
       theme = {
@@ -58,7 +57,7 @@
             "@key" = "W-Return";
             action = {
               "@name" = "Execute";
-              "@command" = "sh -c 'foot tmux attach -t main || foot tmux new-session -s main'";
+              "@command" = "foot tmux";
             };
           }
           {
