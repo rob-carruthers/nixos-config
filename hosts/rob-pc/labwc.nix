@@ -1,5 +1,8 @@
 {
   wayland.windowManager.labwc = {
+    autostart = [
+      "kanshi &"
+    ];
     environment = [
       "XKB_DEFAULT_LAYOUT=us"
       "XCURSOR_THEME=graphite-dark-nord"
