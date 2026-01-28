@@ -1,10 +1,16 @@
-{ pkgs, font-sizes, ... }:
+{
+  pkgs,
+  default-fonts,
+  font-sizes,
+  ...
+}:
 
 {
   imports = [
     ../apps/firefox.nix
     (import ../apps/foot.nix {
       pkgs = pkgs;
+      default-fonts = default-fonts;
       font-sizes = font-sizes;
     })
     ../apps/pcmanfm-qt.nix

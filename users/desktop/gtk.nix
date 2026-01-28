@@ -1,10 +1,15 @@
-{ pkgs, font-sizes, ... }:
+{
+  pkgs,
+  default-fonts,
+  font-sizes,
+  ...
+}:
 
 {
   gtk = {
     enable = true;
     font = {
-      name = "Noto Sans Regular";
+      name = "${default-fonts.regular}";
       size = font-sizes.regular;
     };
     iconTheme = {

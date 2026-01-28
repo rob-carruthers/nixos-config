@@ -1,4 +1,9 @@
-{ pkgs, font-sizes, ... }:
+{
+  pkgs,
+  default-fonts,
+  font-sizes,
+  ...
+}:
 
 {
   imports = [
@@ -8,9 +13,11 @@
     ../apps/starship.nix
     (import ./desktop/gtk.nix {
       pkgs = pkgs;
+      default-fonts = default-fonts;
       font-sizes = font-sizes;
     })
     (import ./desktop/qt.nix {
+      default-fonts = default-fonts;
       font-sizes = font-sizes;
     })
   ];

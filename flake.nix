@@ -20,16 +20,24 @@
       unstablePkgs = import nixpkgs-unstable {
         inherit system;
       };
+      fonts = import ./config/fonts.nix;
       mkNixosConfig =
         name:
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit unstablePkgs;
+            default-fonts = fonts.defaults;
           };
           modules = [
             ./configuration.nix
             ./hosts/${name}/configuration.nix
+            (
+              { pkgs, ... }:
+              {
+                fonts.packages = fonts.packages pkgs;
+              }
+            )
             {
               nix = {
                 settings.experimental-features = [

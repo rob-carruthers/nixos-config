@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  default-fonts,
+  ...
+}:
 
 let
   font-sizes = {
@@ -13,11 +18,13 @@ in
     imports = [
       (import ../../users/rob.nix {
         pkgs = pkgs;
+        default-fonts = default-fonts;
         font-sizes = font-sizes;
       })
 
       (import ../../desktops/labwc.nix {
         pkgs = pkgs;
+        default-fonts = default-fonts;
         font-sizes = font-sizes;
       })
 

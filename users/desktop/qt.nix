@@ -1,4 +1,4 @@
-{ font-sizes, ... }:
+{ default-fonts, font-sizes, ... }:
 
 let
   common-settings = {
@@ -6,8 +6,8 @@ let
       icon_theme = "Memphis98";
     };
     Fonts = {
-      fixed = "\"JetBrainsMono Nerd Font Mono,${toString font-sizes.mono}\"";
-      general = "\"Noto Sans Regular,${toString font-sizes.regular}\"";
+      fixed = "\"${default-fonts.mono},${toString font-sizes.mono}\"";
+      general = "\"${default-fonts.regular},${toString font-sizes.regular}\"";
     };
   };
 in
