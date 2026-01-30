@@ -31,21 +31,21 @@ layers:
       # Array of buttons.
       # In horizontal orientations it's `rows` rows `columns` buttons each.
       # In vertical: `columns` rows `rows` buttons each.
-      - ["win-a", "win-b", "win-c"]
-      - ["win-d", "win-e", "win-f"]
-      - ["win-g", "win-h", "win-i"]
-      - ["win-j", "win-k", "win-l"]
+      - ["ctrl-shift-win-a", "ctrl-shift-win-b", "ctrl-shift-win-c"]
+      - ["ctrl-shift-win-d", "ctrl-shift-win-e", "ctrl-shift-win-f"]
+      - ["ctrl-shift-win-g", "ctrl-shift-win-h", "ctrl-shift-win-i"]
+      - ["ctrl-shift-win-j", "ctrl-shift-win-k", "ctrl-shift-win-l"]
     knobs:
       # Knobs are listed from left to right if horizontal.
       # Knobs are listed from top to bottom if vertical.
       # Knobs can be rotated counter-clockwise (ccw) or clockwise (cw)
       # and pressed down.
-      - ccw: "wheelup"
-        press: "click"
-        cw: "wheeldown"
-      - ccw: "shift-wheelup"
-        press: "shift-click"
-        cw: "shift-wheeldown"
+      - ccw: "ctrl-shift-win-m"
+        press: "ctrl-shift-win-n"
+        cw: "ctrl-shift-win-o"
+      - ccw: "ctrl-shift-win-p"
+        press: "ctrl-shift-win-q"
+        cw: "ctrl-shift-win-r"
 
   - buttons:
       - ["win-a", "win-b", "win-c"]
