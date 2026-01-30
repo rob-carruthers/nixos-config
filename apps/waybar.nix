@@ -35,11 +35,11 @@ in
               "mpd"
             ])
             (lib.mkIf (osConfig.networking.hostName == "rob-laptop") [
-              "temperature"
               "backlight"
               "battery"
             ])
             [
+              "temperature"
               "pulseaudio"
               "network"
               "tray"
@@ -81,6 +81,10 @@ in
             "tooltip" = false;
           };
           "temperature" = {
+            "hwmon-path-abs" = lib.mkIf (
+              osConfig.networking.hostName == "rob-pc"
+            ) "/sys/devices/pci0000:00/0000:00:18.3/hwmon";
+            "input-filename" = lib.mkIf (osConfig.networking.hostName == "rob-pc") "temp1_input";
             "critical-threshold" = 80;
             "format" = "{temperatureC}°C {icon}";
             "format-icons" = [
