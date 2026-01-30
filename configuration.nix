@@ -25,9 +25,13 @@
   services.dbus.enable = true;
   security.polkit.enable = true;
 
+  users.groups.usb = { };
   users.users.rob = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "usb"
+    ];
   };
 
   programs.bash = {
