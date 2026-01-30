@@ -14,15 +14,19 @@
     {
       enable = true;
       timeouts = lib.mkMerge [
-        (lib.mkIf (osConfig.networking.hostName == "rob-laptop") {
-          timeout = 300;
-          command = lock;
-        })
-        {
-          timeout = 60;
-          command = display "off";
-          resumeCommand = display "on";
-        }
+        (lib.mkIf (osConfig.networking.hostName == "rob-laptop") [
+          {
+            timeout = 300;
+            command = lock;
+          }
+        ])
+        [
+          {
+            timeout = 60;
+            command = display "off";
+            resumeCommand = display "on";
+          }
+        ]
       ];
     };
 
