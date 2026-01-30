@@ -11,49 +11,49 @@
       keyboard = {
         keybind = [
           {
-            "@key" = "W-XF86_Tools";
+            "@key" = "C-S-W-a";
             action = {
               "@name" = "Execute";
               "@command" = "mpc prev";
             };
           }
           {
-            "@key" = "W-XF86_Launch5";
+            "@key" = "C-S-W-b";
             action = {
               "@name" = "Execute";
               "@command" = "mpc toggle";
             };
           }
           {
-            "@key" = "W-XF86_Launch6";
+            "@key" = "C-S-W-c";
             action = {
               "@name" = "Execute";
               "@command" = "mpc next";
             };
           }
           {
-            "@key" = "W-XF86_Launch8";
+            "@key" = "C-S-W-e";
             action = {
               "@name" = "Execute";
               "@command" = "ario";
             };
           }
           {
-            "@key" = "W-Print";
+            "@key" = "C-S-W-o";
             action = {
               "@name" = "Execute";
               "@command" = "pulsemixer --change-volume +2";
             };
           }
           {
-            "@key" = "W-Menu";
+            "@key" = "C-S-W-m";
             action = {
               "@name" = "Execute";
               "@command" = "pulsemixer --change-volume -2";
             };
           }
           {
-            "@key" = "W-Scroll_Lock";
+            "@key" = "C-S-W-n";
             action = {
               "@name" = "Execute";
               "@command" = "pulsemixer --toggle-mute";

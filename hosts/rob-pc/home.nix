@@ -29,6 +29,7 @@ in
       })
 
       ../../apps/augustus.nix
+      ../../apps/ch57x-keyboard-tool.nix
       ../../apps/kanshi.nix
       ../../apps/mpd.nix
       ../../apps/openttd-jgrpp.nix

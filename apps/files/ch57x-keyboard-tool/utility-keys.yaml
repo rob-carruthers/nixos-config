@@ -1,0 +1,74 @@
+# See 'doc/actions.md' for description of available actions which
+# may be assigned to keys. Comments here describe only configuration
+# file format itself.
+
+# Normal keyboard orientation is when
+# buttons are on the left side and knobs are on the right.
+# However, you may want to use the keyboard in another orientation.
+# To avoid remapping button positions in your head, just set it here.
+# Possible values are:
+#   (horizontal)
+#   - 'normal': buttons on the left, knobs on the right
+#   - 'upsidedown': buttons on the right, knobs on the left
+#   (vertical)
+#   - 'clockwise': buttons on the top, knobs on the bottom
+#   - 'counterclockwise': buttons on the bottom, knobs on the top
+orientation: counterclockwise
+
+# Different keyboard models have different numbers of buttons and knobs.
+# Set it here for proper handling.
+# Count rows and columns with the keyboard in normal orientation (knobs on the right)
+rows: 3
+columns: 4
+knobs: 2
+
+# Layers are sets of alternative key mappings.
+# The current layer is changed using a button on the side of the keyboard
+# and displayed with LEDs on top (only for the moment of changing).
+# All keyboards I saw had three layers, but I suppose other variants exist.
+layers:
+  - buttons:
+      # Array of buttons.
+      # In horizontal orientations it's `rows` rows `columns` buttons each.
+      # In vertical: `columns` rows `rows` buttons each.
+      - ["ctrl-shift-win-a", "ctrl-shift-win-b", "ctrl-shift-win-c"]
+      - ["ctrl-shift-win-d", "ctrl-shift-win-e", "ctrl-shift-win-f"]
+      - ["ctrl-shift-win-g", "ctrl-shift-win-h", "ctrl-shift-win-i"]
+      - ["ctrl-shift-win-j", "ctrl-shift-win-k", "ctrl-shift-win-l"]
+    knobs:
+      # Knobs are listed from left to right if horizontal.
+      # Knobs are listed from top to bottom if vertical.
+      # Knobs can be rotated counter-clockwise (ccw) or clockwise (cw)
+      # and pressed down.
+      - ccw: "ctrl-shift-win-m"
+        press: "ctrl-shift-win-n"
+        cw: "ctrl-shift-win-o"
+      - ccw: "ctrl-shift-win-p"
+        press: "ctrl-shift-win-q"
+        cw: "ctrl-shift-win-r"
+
+  - buttons:
+      - ["ctrl-shift-win-a", "ctrl-shift-win-b", "ctrl-shift-win-c"]
+      - ["ctrl-shift-win-d", "ctrl-shift-win-e", "ctrl-shift-win-f"]
+      - ["ctrl-shift-win-g", "ctrl-shift-win-h", "ctrl-shift-win-i"]
+      - ["ctrl-shift-win-j", "ctrl-shift-win-k", "ctrl-shift-win-l"]
+    knobs:
+      - ccw: "ctrl-shift-win-m"
+        press: "ctrl-shift-win-n"
+        cw: "ctrl-shift-win-o"
+      - ccw: "ctrl-shift-win-p"
+        press: "ctrl-shift-win-q"
+        cw: "ctrl-shift-win-r"
+
+  - buttons:
+      - ["ctrl-shift-win-a", "ctrl-shift-win-b", "ctrl-shift-win-c"]
+      - ["ctrl-shift-win-d", "ctrl-shift-win-e", "ctrl-shift-win-f"]
+      - ["ctrl-shift-win-g", "ctrl-shift-win-h", "ctrl-shift-win-i"]
+      - ["ctrl-shift-win-j", "ctrl-shift-win-k", "ctrl-shift-win-l"]
+    knobs:
+      - ccw: "ctrl-shift-win-m"
+        press: "ctrl-shift-win-n"
+        cw: "ctrl-shift-win-o"
+      - ccw: "ctrl-shift-win-p"
+        press: "ctrl-shift-win-q"
+        cw: "ctrl-shift-win-r"
