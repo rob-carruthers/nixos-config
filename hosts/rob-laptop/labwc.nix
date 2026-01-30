@@ -5,7 +5,6 @@
     ];
     environment = [
       "XKB_DEFAULT_LAYOUT=gb"
-      "XCURSOR_THEME=graphite-dark-nord"
     ];
     rc = {
       keyboard = {
