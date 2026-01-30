@@ -1,6 +1,7 @@
 {
   boot.loader.limine = {
     enable = true;
+    maxGenerations = 5;
     extraEntries = ''
       /Arch Linux Install Media
           protocol: linux
