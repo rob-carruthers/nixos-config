@@ -36,6 +36,12 @@
     "amdgpu"
   ];
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    config.common.default = [ "wlr" ];
+  };
+
   services.libinput.enable = true;
 
   environment.systemPackages = with pkgs; [

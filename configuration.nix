@@ -55,6 +55,7 @@
     uv
     wget
   ];
+  environment.sessionVariables.QT_QPA_PLATFORM = "wayland";
 
   system.stateVersion = "25.11";
 

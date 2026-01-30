@@ -25,6 +25,7 @@
     nwg-menu
     pavucontrol
     pulsemixer
+    syncthingtray
     wl-clipboard
   ];
 
@@ -39,6 +40,10 @@
     autostart = [
       "waybar &"
       "pcmanfm-qt --desktop &"
+      "env QT_QPA_PLATFORM=wayland XDG_CURRENT_DESKTOP=labwc syncthingtray --wait &"
+    ];
+    environment = [
+      "XCURSOR_THEME=graphite-dark-nord"
     ];
     rc = {
       theme = {

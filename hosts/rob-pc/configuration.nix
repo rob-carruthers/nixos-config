@@ -25,6 +25,12 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    config.common.default = [ "wlr" ];
+  };
+
   # for ch57x-keyboard-tool
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="1189", ATTR{idProduct}=="8840", GROUP="usb", MODE="0660"
