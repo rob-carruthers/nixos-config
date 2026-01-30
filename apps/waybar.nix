@@ -34,17 +34,17 @@ in
             (lib.mkIf (osConfig.networking.hostName == "rob-pc") [
               "mpd"
             ])
+            (lib.mkIf (osConfig.networking.hostName == "rob-laptop") [
+              "temperature"
+              "backlight"
+              "battery"
+            ])
             [
               "pulseaudio"
               "network"
               "tray"
               "clock"
             ]
-            (lib.mkIf (osConfig.networking.hostName == "rob-laptop") [
-              "temperature"
-              "backlight"
-              "battery"
-            ])
           ];
           "custom/start" = {
             "format" = "        Start";
