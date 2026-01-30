@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  lib,
+  pkgs,
+  osConfig,
+  ...
+}:
 
 {
   services.swayidle =
@@ -8,11 +13,11 @@
     in
     {
       enable = true;
-      timeouts = [
-        {
+      timeouts = lib.mkMerge [
+        (lib.mkIf (osConfig.networking.hostName == "rob-laptop") {
           timeout = 300;
           command = lock;
-        }
+        })
         {
           timeout = 60;
           command = display "off";
