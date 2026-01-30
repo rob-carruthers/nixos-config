@@ -13,6 +13,8 @@
     ../../config/supercollider.nix
     ../../config/video.nix
 
+    ../../apps/gtklock.nix
+
     ./battery-conservative.nix
     ./boot.nix
     ./environment.nix

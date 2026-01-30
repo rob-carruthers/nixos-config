@@ -32,8 +32,10 @@ in
       ../../apps/legion-kb-rgb.nix
       ../../apps/openttd-jgrpp.nix
       ../../apps/supercollider.nix
+      ../../apps/swayidle.nix
       ../../apps/syncthing.nix
       ../../apps/tmux.nix
+      ../../apps/wlopm.nix
 
       ./labwc.nix
     ];
