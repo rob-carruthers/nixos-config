@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  osConfig,
+  ...
+}:
 let
   waybar_config = config.custom.waybar;
 in
@@ -25,14 +30,21 @@ in
             "wlr/taskbar"
           ];
           "modules-center" = [ ];
-          "modules-right" = [
-            "temperature"
-            "pulseaudio"
-            "backlight"
-            "network"
-            "battery"
-            "tray"
-            "clock"
+          "modules-right" = lib.mkMerge [
+            (lib.mkIf (osConfig.networking.hostName == "rob-pc") [
+              "mpd"
+            ])
+            [
+              "pulseaudio"
+              "network"
+              "tray"
+              "clock"
+            ]
+            (lib.mkIf (osConfig.networking.hostName == "rob-laptop") [
+              "temperature"
+              "backlight"
+              "battery"
+            ])
           ];
           "custom/start" = {
             "format" = "        Start";
@@ -47,6 +59,10 @@ in
             "all-outputs" = false;
             "format" = "{icon} {name}";
             "on-click" = "activate";
+          };
+          "mpd" = {
+            "on-click" = "exec ario";
+            "format" = "{artist} - {title}";
           };
           "tray" = {
             "spacing" = 4;
