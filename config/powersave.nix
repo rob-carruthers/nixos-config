@@ -8,7 +8,4 @@
     "vm.dirty_writeback_centisecs" = 1500;
     "vm.dirty_expire_centisecs" = 1500;
   };
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"
-  '';
 }
