@@ -58,6 +58,7 @@ in
           "wlr/taskbar" = {
             "all-outputs" = false;
             "format" = "{icon} {name}";
+            "sort-by-number" = true;
             "on-click" = "activate";
           };
           "mpd" = {
