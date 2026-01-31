@@ -25,6 +25,11 @@
   home.username = "rob";
   home.homeDirectory = "/home/rob";
   home.stateVersion = "25.11";
+  home.sessionVariables = {
+    EDITOR = "hx";
+    SUDO_EDITOR = "hx";
+    VISUAL = "hx";
+  };
 
   xdg.userDirs = {
     enable = true;
