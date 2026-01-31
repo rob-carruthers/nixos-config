@@ -11,6 +11,7 @@
     ../../config/auto-cpufreq.nix
     ../../config/audio.nix
     ../../config/supercollider.nix
+    ../../config/printing.nix
     ../../config/video.nix
 
     ../../apps/gtklock.nix

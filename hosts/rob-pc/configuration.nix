@@ -9,6 +9,7 @@
   imports = [
     ../../config/audio.nix
     ../../config/supercollider.nix
+    ../../config/printing.nix
     ../../config/video.nix
 
     ./boot.nix
