@@ -62,7 +62,9 @@ in
           };
           "mpd" = {
             "on-click" = "exec ario";
-            "format" = "{artist} - {title}";
+            "format" = " {artist} - {title}";
+            "format-paused" = " {artist} - {title}";
+            "format-stopped" = "";
           };
           "tray" = {
             "spacing" = 4;
@@ -328,7 +330,7 @@ in
             background-origin: content-box;
         }
 
-        #network, #tray {
+        #network, #tray, #mpd {
             padding: 5px 5px;
             margin: 5px 3px;
             background-color: #c0c0c0;
