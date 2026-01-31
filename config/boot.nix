@@ -20,6 +20,8 @@
       "mitigations=off"
       "ipv6.disable=1"
       "threadirqs"
+      "nmi_watchdog=0"
+      "nowatchdog"
     ];
     blacklistedKernelModules = [
       "nouveau"
