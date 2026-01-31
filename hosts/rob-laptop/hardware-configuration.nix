@@ -8,6 +8,7 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    ../../config/powersave.nix
   ];
 
   boot.initrd.availableKernelModules = [
@@ -19,7 +20,10 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "snd_hda_intel"
+  ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
