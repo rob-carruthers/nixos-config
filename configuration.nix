@@ -26,11 +26,13 @@
   security.polkit.enable = true;
 
   users.groups.usb = { };
+  users.groups.lpadmin = { };
   users.users.rob = {
     isNormalUser = true;
     extraGroups = [
       "wheel"
       "usb"
+      "lpadmin"
     ];
   };
 
