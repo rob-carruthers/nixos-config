@@ -56,6 +56,14 @@
             (
               { ... }:
               {
+                home-manager.extraSpecialArgs = {
+                  inherit unstablePkgs;
+                };
+              }
+            )
+            (
+              { ... }:
+              {
                 nixpkgs.overlays = [
                   self.overlays.legion-kb-rgb
                   (import ./overlays/memphis98.nix)

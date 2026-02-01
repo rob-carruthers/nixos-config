@@ -52,9 +52,6 @@
     nixfmt-rfc-style
     ripgrep
     squashfsTools
-    unstablePkgs.ruff
-    unstablePkgs.ty
-    uv
     wget
   ];
   environment.sessionVariables.QT_QPA_PLATFORM = "wayland";

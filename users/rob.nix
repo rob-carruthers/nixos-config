@@ -10,6 +10,7 @@
     ../apps/direnv.nix
     ../apps/helix.nix
     ../apps/htop.nix
+    ../apps/python.nix
     ../apps/starship.nix
     (import ./desktop/gtk.nix {
       pkgs = pkgs;

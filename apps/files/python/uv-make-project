@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+set -eu
+
+if [ $# -lt 1 ]; then
+    echo "Usage: uv-init [uv init options...] <project>"
+    exit 1
+fi
+
+project="${@: -1}"
+
+if [ -d "$project" ]; then
+    echo "Error: project directory '$project' already exists."
+    exit 1
+fi
+
+uv init "$@"
+cd "$project"
+
+uv venv
+
+cat "$HOME/.config/uv/ruff.toml" >> pyproject.toml
+cat "$HOME/.config/uv/ty.toml"   >> pyproject.toml
+
+cat > .envrc <<'EOF'
+if [ -f .venv/bin/activate ]; then
+    . .venv/bin/activate
+fi
+EOF
+
+echo "Project '$project' initialised."
+
