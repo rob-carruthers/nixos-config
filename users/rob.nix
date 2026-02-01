@@ -25,6 +25,7 @@
   home.username = "rob";
   home.homeDirectory = "/home/rob";
   home.stateVersion = "25.11";
+  home.sessionPath = [ "$HOME/.local/bin" ];
   home.sessionVariables = {
     EDITOR = "hx";
     SUDO_EDITOR = "hx";
