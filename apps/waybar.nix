@@ -63,8 +63,8 @@ in
           };
           "mpd" = {
             "on-click" = "exec ario";
-            "format" = " {artist} - {title}";
-            "format-paused" = " {artist} - {title}";
+            "format" = " {artist} - {title} ({elapsedTime:%M:%S} / {totalTime:%M:%S})";
+            "format-paused" = " {artist} - {title} ({elapsedTime:%M:%S} / {totalTime:%M:%S})";
             "format-stopped" = "";
           };
           "tray" = {
