@@ -18,6 +18,7 @@ cd "$project"
 
 uv venv
 
+echo -en "\n" >> pyproject.toml
 cat "$HOME/.config/uv/ruff.toml" >> pyproject.toml
 cat "$HOME/.config/uv/ty.toml"   >> pyproject.toml
 
