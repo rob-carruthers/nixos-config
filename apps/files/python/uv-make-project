@@ -13,7 +13,7 @@ if [ -d "$project" ]; then
     exit 1
 fi
 
-uv init "$@"
+uv init --author-from none "$@"
 cd "$project"
 
 uv venv
