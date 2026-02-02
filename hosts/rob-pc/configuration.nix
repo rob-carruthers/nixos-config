@@ -7,13 +7,13 @@
   };
 
   imports = [
+    ../../config/aliases.nix
     ../../config/audio.nix
     ../../config/supercollider.nix
     ../../config/printing.nix
     ../../config/video.nix
 
     ./boot.nix
-    ./environment.nix
     ./hardware-configuration.nix
     ./home.nix
     ./monitor-switch.nix

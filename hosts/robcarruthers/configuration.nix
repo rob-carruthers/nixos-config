@@ -1,7 +1,8 @@
 {
   imports = [
+    ../../config/aliases.nix
+
     ./boot.nix
-    ./environment.nix
     ./hardware-configuration.nix
     ./home.nix
     ./web/nginx.nix

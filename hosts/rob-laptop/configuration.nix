@@ -8,6 +8,7 @@
   };
 
   imports = [
+    ../../config/aliases.nix
     ../../config/auto-cpufreq.nix
     ../../config/audio.nix
     ../../config/supercollider.nix
@@ -18,7 +19,6 @@
 
     ./battery-conservative.nix
     ./boot.nix
-    ./environment.nix
     ./hardware-configuration.nix
     ./home.nix
     ./video.nix
