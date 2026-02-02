@@ -82,7 +82,7 @@
       nixosConfigurations = {
         rob-pc = mkNixosConfig "rob-pc";
         rob-laptop = mkNixosConfig "rob-laptop";
-        "robcarruthers.co.uk" = mkNixosConfig "robcarruthers.co.uk";
+        robcarruthers = mkNixosConfig "robcarruthers";
       };
     };
 }
