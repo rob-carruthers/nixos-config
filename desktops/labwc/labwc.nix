@@ -16,6 +16,8 @@
     ../../apps/pcmanfm-qt.nix
     ../../apps/waybar.nix
     ../../apps/wofi.nix
+
+    ./themes/nord.nix
   ];
 
   home.packages = with pkgs; [
@@ -47,11 +49,11 @@
     ];
     rc = {
       theme = {
-        name = "nord";
+        name = "nord-openbox-theme";
         cornerRadius = 8;
         font = {
-          "@name" = "FiraCode";
-          "@size" = "11";
+          "@name" = default-fonts.regular;
+          "@size" = toString font-sizes.regular;
         };
       };
       keyboard = {
