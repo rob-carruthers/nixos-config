@@ -8,6 +8,7 @@
 {
   imports = [
     ../apps/direnv.nix
+    ../apps/git.nix
     ../apps/helix.nix
     ../apps/htop.nix
     ../apps/python.nix
@@ -36,17 +37,6 @@
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
-  };
-
-  programs.git.enable = true;
-  programs.lazygit = {
-    enable = true;
-    settings = {
-      os = {
-        edit = "hx {{filename}}";
-        editAtLine = "hx {{filename}}:{{line}}";
-      };
-    };
   };
 
   programs.bash = {
