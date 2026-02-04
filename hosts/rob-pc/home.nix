@@ -22,7 +22,7 @@ in
         font-sizes = font-sizes;
       })
 
-      (import ../../desktops/labwc.nix {
+      (import ../../desktops/labwc {
         pkgs = pkgs;
         default-fonts = default-fonts;
         font-sizes = font-sizes;

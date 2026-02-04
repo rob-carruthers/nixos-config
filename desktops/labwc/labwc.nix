@@ -7,15 +7,15 @@
 
 {
   imports = [
-    ../apps/firefox.nix
-    (import ../apps/foot.nix {
+    ../../apps/firefox.nix
+    (import ../../apps/foot.nix {
       pkgs = pkgs;
       default-fonts = default-fonts;
       font-sizes = font-sizes;
     })
-    ../apps/pcmanfm-qt.nix
-    ../apps/waybar.nix
-    ../apps/wofi.nix
+    ../../apps/pcmanfm-qt.nix
+    ../../apps/waybar.nix
+    ../../apps/wofi.nix
   ];
 
   home.packages = with pkgs; [
