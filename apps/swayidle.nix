@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  osConfig,
   ...
 }:
 
@@ -9,24 +8,21 @@
   services.swayidle =
     let
       lock = "${pkgs.gtklock}/bin/gtklock";
-      display = status: "${pkgs.wlopm}/bin/wlopm --${status} \\*";
+      off = "${pkgs.wlopm}/bin/wlopm --off \\*";
+      on = "${pkgs.wlopm}/bin/wlopm --on \\*";
     in
     {
       enable = true;
-      timeouts = lib.mkMerge [
-        (lib.mkIf (osConfig.networking.hostName == "rob-laptop") [
-          {
-            timeout = 300;
-            command = lock;
-          }
-        ])
-        [
-          {
-            timeout = 60;
-            command = display "off";
-            resumeCommand = display "on";
-          }
-        ]
+      timeouts = [
+        {
+          timeout = 300;
+          command = lib.escapeShellArgs [
+            "${pkgs.bash}/bin/bash"
+            "-c"
+            "${lock} & sleep 0.5; ${off}"
+          ];
+          resumeCommand = on;
+        }
       ];
     };
 
