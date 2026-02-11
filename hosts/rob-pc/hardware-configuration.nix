@@ -46,6 +46,7 @@
     options = [
       "defaults"
       "noatime"
+      "ro"
     ];
   };
 
