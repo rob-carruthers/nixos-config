@@ -40,6 +40,15 @@
     ];
   };
 
+  fileSystems."/mnt/data.disk" = {
+    device = "/dev/disk/by-uuid/E4888080888052CA";
+    fsType = "ntfs3";
+    options = [
+      "defaults"
+      "noatime"
+    ];
+  };
+
   swapDevices = [
     { device = "/dev/disk/by-uuid/cf359ae3-d3a3-4e3d-bc17-9e1b042c352a"; }
   ];

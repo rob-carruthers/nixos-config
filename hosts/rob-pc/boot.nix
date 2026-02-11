@@ -29,12 +29,4 @@
     "snd_hda_intel"
   ];
 
-  fileSystems."/mnt/data.disk" = {
-    device = "/dev/disk/by-uuid/E4888080888052CA";
-    fsType = "ntfs3";
-    options = [
-      "defaults"
-      "noatime"
-    ];
-  };
 }
