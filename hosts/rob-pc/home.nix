@@ -55,4 +55,7 @@ in
       ../../users/root.nix
     ];
   };
+
+  security.pam.services.gtklock.enable = true;
+
 }
