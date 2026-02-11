@@ -14,9 +14,12 @@
 
   };
 
+  services.mpd-mpris.enable = true;
+
   home.packages = with pkgs; [
     ario
     mpc
+    playerctl
   ];
 
 }
