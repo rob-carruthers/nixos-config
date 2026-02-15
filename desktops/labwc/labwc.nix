@@ -81,6 +81,13 @@
             };
           }
           {
+            "@key" = "W-l";
+            action = {
+              "@name" = "Execute";
+              "@command" = "${pkgs.gtklock}/bin/gtklock";
+            };
+          }
+          {
             "@key" = "W-r";
             action = {
               "@name" = "Execute";
