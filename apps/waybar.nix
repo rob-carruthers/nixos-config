@@ -49,6 +49,7 @@ in
           "custom/start" = {
             "format" = "        Start";
             "tooltip" = false;
+            "cursor" = false;
             "on-click" = "exec nwg-menu -cmd-logout 'labwc -e' -k -term 'foot' -fm 'pcmanfm-qt'";
           };
           "ext/workspaces" = {
