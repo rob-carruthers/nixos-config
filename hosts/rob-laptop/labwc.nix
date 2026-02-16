@@ -11,6 +11,7 @@
         keybind = [
           {
             "@key" = "XF86_AudioRaiseVolume";
+            "@allowWhenLocked" = "yes";
             action = {
               "@name" = "Execute";
               "@command" = "pulsemixer --change-volume +5";
@@ -18,6 +19,7 @@
           }
           {
             "@key" = "XF86_AudioLowerVolume";
+            "@allowWhenLocked" = "yes";
             action = {
               "@name" = "Execute";
               "@command" = "pulsemixer --change-volume -5";
@@ -25,6 +27,7 @@
           }
           {
             "@key" = "XF86_AudioMute";
+            "@allowWhenLocked" = "yes";
             action = {
               "@name" = "Execute";
               "@command" = "pulsemixer --toggle-mute";
