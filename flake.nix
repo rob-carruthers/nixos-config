@@ -23,6 +23,14 @@
     }:
     let
       system = "x86_64-linux";
+      overlays = [
+        self.overlays.legion-kb-rgb
+        (import ./overlays/memphis98.nix)
+        (import ./overlays/ch57x-keyboard-tool.nix)
+      ];
+      pkgs = import nixpkgs {
+        inherit system overlays;
+      };
       unstablePkgs = import nixpkgs-unstable {
         inherit system;
       };
@@ -64,11 +72,7 @@
             (
               { ... }:
               {
-                nixpkgs.overlays = [
-                  self.overlays.legion-kb-rgb
-                  (import ./overlays/memphis98.nix)
-                  (import ./overlays/ch57x-keyboard-tool.nix)
-                ];
+                nixpkgs.overlays = overlays;
               }
             )
           ];
