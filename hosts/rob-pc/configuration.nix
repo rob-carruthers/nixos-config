@@ -20,6 +20,7 @@
     ./video.nix
 
     ../../apps/mullvad.nix
+    ../../apps/podman.nix
   ];
 
   networking.hostName = "rob-pc";
