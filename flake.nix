@@ -22,6 +22,7 @@
     }:
     let
       system = "x86_64-linux";
+      lib = nixpkgs.lib;
       overlays = [
         (final: prev: {
           legion-kb-rgb = legion-kb-rgb.packages.${final.stdenv.hostPlatform.system}.default;
@@ -32,52 +33,18 @@
       pkgs = import nixpkgs {
         inherit system overlays;
       };
-      unstablePkgs = import nixpkgs-unstable {
-        inherit system;
-      };
       fonts = import ./config/fonts.nix;
-      mkNixosConfig =
-        name:
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit unstablePkgs;
-            default-fonts = fonts.defaults;
-          };
-          modules = [
-            ./configuration.nix
-            ./hosts/${name}/configuration.nix
-            (
-              { pkgs, ... }:
-              {
-                fonts.packages = fonts.packages pkgs;
-              }
-            )
-            {
-              nix = {
-                settings.experimental-features = [
-                  "nix-command"
-                  "flakes"
-                ];
-              };
-            }
-            home-manager.nixosModules.home-manager
-            (
-              { ... }:
-              {
-                home-manager.extraSpecialArgs = {
-                  inherit unstablePkgs;
-                };
-              }
-            )
-            (
-              { ... }:
-              {
-                nixpkgs.overlays = overlays;
-              }
-            )
-          ];
-        };
+      mkNixosConfig = import ./lib/mkNixosConfig.nix {
+        inherit
+          lib
+          nixpkgs
+          nixpkgs-unstable
+          home-manager
+          overlays
+          fonts
+          system
+          ;
+      };
     in
     {
       nixosConfigurations = {
