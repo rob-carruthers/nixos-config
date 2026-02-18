@@ -6,6 +6,10 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     legion-kb-rgb = {
       url = "github:4JX/L5P-Keyboard-RGB";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,6 +18,7 @@
 
   outputs =
     {
+      fenix,
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
@@ -47,6 +52,12 @@
         rob-pc = mkNixosConfig "rob-pc";
         rob-laptop = mkNixosConfig "rob-laptop";
         robcarruthers = mkNixosConfig "robcarruthers";
+      };
+
+      devShells.${system} = {
+        rust = import ./shells/rust.nix {
+          inherit pkgs fenix system;
+        };
       };
     };
 }
