@@ -14,7 +14,6 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
@@ -24,7 +23,9 @@
     let
       system = "x86_64-linux";
       overlays = [
-        self.overlays.legion-kb-rgb
+        (final: prev: {
+          legion-kb-rgb = legion-kb-rgb.packages.${final.stdenv.hostPlatform.system}.default;
+        })
         (import ./overlays/memphis98.nix)
         (import ./overlays/ch57x-keyboard-tool.nix)
       ];
@@ -79,10 +80,6 @@
         };
     in
     {
-      overlays.legion-kb-rgb = final: prev: {
-        legion-kb-rgb = legion-kb-rgb.packages.${final.stdenv.hostPlatform.system}.default;
-      };
-
       nixosConfigurations = {
         rob-pc = mkNixosConfig "rob-pc";
         rob-laptop = mkNixosConfig "rob-laptop";
