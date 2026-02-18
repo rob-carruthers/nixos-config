@@ -23,13 +23,9 @@
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
-      overlays = [
-        (final: prev: {
-          legion-kb-rgb = legion-kb-rgb.packages.${final.stdenv.hostPlatform.system}.default;
-        })
-        (import ./overlays/memphis98.nix)
-        (import ./overlays/ch57x-keyboard-tool.nix)
-      ];
+      overlays = import ./lib/overlays.nix {
+        inherit legion-kb-rgb;
+      };
       pkgs = import nixpkgs {
         inherit system overlays;
       };
