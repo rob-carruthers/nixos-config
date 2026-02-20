@@ -20,4 +20,8 @@ pkgs.mkShell {
   ];
 
   RUST_SRC_PATH = "${toolchain}/lib/rustlib/src/rust/library";
+
+  shellHook = ''
+    export PATH="$HOME/.cargo/bin:$PATH"
+  '';
 }
