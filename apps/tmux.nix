@@ -23,7 +23,7 @@ in
       tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.yank
     ];
-    prefix = "C-Space";
+    prefix = "M-x";
     terminal = "foot";
     extraConfig = ''
       set -g @nova-nerdfonts true
