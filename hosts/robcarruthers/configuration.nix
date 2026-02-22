@@ -1,6 +1,7 @@
 {
   imports = [
     ../../config/aliases.nix
+    ../../config/ipv6.nix
 
     ./boot.nix
     ./hardware-configuration.nix

@@ -9,6 +9,7 @@
   imports = [
     ../../config/aliases.nix
     ../../config/audio.nix
+    ../../config/ipv6.nix
     ../../config/supercollider.nix
     ../../config/printing.nix
     ../../config/video.nix
