@@ -3,6 +3,7 @@
 {
   boot = {
     loader.efi.canTouchEfiVariables = true;
+    loader.timeout = 2;
     plymouth = {
       enable = true;
       theme = "bgrt";
