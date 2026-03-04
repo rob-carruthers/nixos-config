@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   boot = {
     loader.efi.canTouchEfiVariables = true;
@@ -10,6 +12,7 @@
     consoleLogLevel = 3;
     initrd.systemd.enable = true;
     initrd.verbose = false;
+    kernelPackages = pkgs.linuxPackages_6_18;
     kernelParams = [
       "quiet"
       "splash"
