@@ -41,6 +41,7 @@ in
       ../../apps/wlopm.nix
 
       ./labwc.nix
+      ../../lib/desktop-icons.nix
     ];
 
     custom.waybar.fontSizePx = 11;
@@ -49,6 +50,10 @@ in
       set -g @nova-segments-0-left ""
       set -g @nova-segments-0-right "cputemp clock"
     '';
+    desktopIcons.packages = with pkgs; [
+      augustus
+      firefox
+    ];
   };
 
   home-manager.users.root = {
