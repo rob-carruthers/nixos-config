@@ -1,11 +1,9 @@
-{ pkgs, ... }:
+{ ... }:
 
 let
-  helixConfig = pkgs.fetchFromGitHub {
-    owner = "rob-carruthers";
-    repo = "helix";
-    rev = "321ce71";
-    sha256 = "sha256-+Uf1HDukgMzFv9CvN5DetLLYWUCHKoi+p+oyQl9NzyY=";
+  helixConfig = builtins.fetchGit {
+    url = "https://github.com/rob-carruthers/helix";
+    rev = "f6c858aeca10feb24c2fbac6450cf1ee0cde12a0";
   };
 in
 {
