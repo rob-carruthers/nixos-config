@@ -14,6 +14,10 @@
       url = "github:helix-editor/helix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    helix-config = {
+      url = "github:rob-carruthers/helix";
+      flake = false;
+    };
     legion-kb-rgb = {
       url = "github:4JX/L5P-Keyboard-RGB";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,7 +25,7 @@
   };
 
   outputs =
-    {
+    inputs@{
       fenix,
       nixpkgs,
       nixpkgs-unstable,
@@ -49,6 +53,7 @@
           overlays
           fonts
           system
+          inputs
           ;
       };
     in

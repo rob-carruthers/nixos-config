@@ -75,6 +75,22 @@
         "type": "github"
       }
     },
+    "helix-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773431473,
+        "narHash": "sha256-jkp7hx+dZHXgyZ6JrLRGPcnBuxdY7gCF7imTjfW60zU=",
+        "owner": "rob-carruthers",
+        "repo": "helix",
+        "rev": "96d4007d1519c9927eea350fb378a9a47faae36c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rob-carruthers",
+        "repo": "helix",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -155,6 +171,7 @@
       "inputs": {
         "fenix": "fenix",
         "helix": "helix",
+        "helix-config": "helix-config",
         "home-manager": "home-manager",
         "legion-kb-rgb": "legion-kb-rgb",
         "nixpkgs": "nixpkgs",

@@ -6,6 +6,7 @@
   overlays,
   fonts,
   system,
+  inputs,
 }:
 
 name:
@@ -19,7 +20,7 @@ lib.nixosSystem {
   inherit system;
 
   specialArgs = {
-    inherit unstablePkgs;
+    inherit inputs unstablePkgs;
     default-fonts = fonts.defaults;
   };
 
@@ -45,7 +46,7 @@ lib.nixosSystem {
 
     {
       home-manager.extraSpecialArgs = {
-        inherit unstablePkgs;
+        inherit inputs unstablePkgs;
       };
     }
 
