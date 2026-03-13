@@ -13,6 +13,10 @@
       default-fonts = default-fonts;
       font-sizes = font-sizes;
     })
+    (import ../../apps/ghostty.nix {
+      default-fonts = default-fonts;
+      font-sizes = font-sizes;
+    })
     ../../apps/pcmanfm-qt.nix
     ../../apps/waybar.nix
     ../../apps/wofi.nix
@@ -63,7 +67,7 @@
             "@key" = "W-Return";
             action = {
               "@name" = "Execute";
-              "@command" = "foot tmux";
+              "@command" = "ghostty -e tmux";
             };
           }
           {

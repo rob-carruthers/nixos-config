@@ -50,7 +50,7 @@ in
             "format" = "        Start";
             "tooltip" = false;
             "cursor" = false;
-            "on-click" = "exec nwg-menu -cmd-logout 'labwc -e' -k -term 'foot' -fm 'pcmanfm-qt'";
+            "on-click" = "exec nwg-menu -cmd-logout 'labwc -e' -k -term 'ghostty' -fm 'pcmanfm-qt'";
           };
           "ext/workspaces" = {
             "format" = " ";
