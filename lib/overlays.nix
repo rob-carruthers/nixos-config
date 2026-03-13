@@ -1,10 +1,12 @@
 {
   legion-kb-rgb,
+  helix,
 }:
 
 [
   (final: prev: {
     legion-kb-rgb = legion-kb-rgb.packages.${final.stdenv.hostPlatform.system}.default;
+    helix = helix.packages.${final.stdenv.hostPlatform.system}.default;
   })
 
   (import ../overlays/memphis98.nix)

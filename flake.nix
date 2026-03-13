@@ -10,6 +10,10 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     legion-kb-rgb = {
       url = "github:4JX/L5P-Keyboard-RGB";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,6 +26,7 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
+      helix,
       legion-kb-rgb,
       ...
     }:
@@ -29,7 +34,7 @@
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       overlays = import ./lib/overlays.nix {
-        inherit legion-kb-rgb;
+        inherit legion-kb-rgb helix;
       };
       pkgs = import nixpkgs {
         inherit system overlays;
