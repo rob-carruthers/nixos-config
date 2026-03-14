@@ -8,11 +8,11 @@
   home.packages = with pkgs; [
     curl
     fd
-    fzf
     gcc
     gnumake
     lua-language-server
     ripgrep
+    skim
     tree-sitter
     unzip
   ];
