@@ -8,7 +8,7 @@
   home.packages = with pkgs; [
     curl
     fd
-    # fzf
+    fzf
     gcc
     gnumake
     lua-language-server
