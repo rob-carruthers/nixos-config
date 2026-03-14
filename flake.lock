@@ -78,11 +78,11 @@
     "helix-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1773431473,
-        "narHash": "sha256-jkp7hx+dZHXgyZ6JrLRGPcnBuxdY7gCF7imTjfW60zU=",
+        "lastModified": 1773492122,
+        "narHash": "sha256-GExYKB22WllcGfvVnLcm08CVeiJzg9MNe03ZFL9gRRM=",
         "owner": "rob-carruthers",
         "repo": "helix",
-        "rev": "96d4007d1519c9927eea350fb378a9a47faae36c",
+        "rev": "cd94ad31288f7999575c723aca3c5115562c7e02",
         "type": "github"
       },
       "original": {
