@@ -4,7 +4,6 @@
   imports = [
     ../apps/helix.nix
     ../apps/htop.nix
-    ../apps/neovim.nix
     ../apps/starship.nix
   ];
   home.username = "root";

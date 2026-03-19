@@ -13,6 +13,7 @@
     ./config/boot.nix
     ./config/inputrc.nix
     ./services
+    ./apps/neovim.nix
   ];
 
   networking.networkmanager.enable = true;

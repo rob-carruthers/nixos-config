@@ -11,7 +11,6 @@
     ../apps/git.nix
     ../apps/helix.nix
     ../apps/htop.nix
-    ../apps/neovim.nix
     ../apps/nvd.nix
     ../apps/python.nix
     ../apps/starship.nix
