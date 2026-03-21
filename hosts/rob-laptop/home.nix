@@ -32,6 +32,7 @@ in
       ../../apps/distrobox.nix
       ../../apps/legion-kb-rgb.nix
       ../../apps/openttd-jgrpp.nix
+      ../../apps/qt5.nix
       ../../apps/supercollider.nix
       ../../apps/swayidle.nix
       ../../apps/syncthing.nix
