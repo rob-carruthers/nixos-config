@@ -78,6 +78,13 @@
             };
           }
           {
+            "@key" = "C-S-Escape";
+            action = {
+              "@name" = "Execute";
+              "@command" = "qps";
+            };
+          }
+          {
             "@key" = "W-e";
             action = {
               "@name" = "Execute";

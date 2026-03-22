@@ -35,6 +35,7 @@ in
       ../../apps/kanshi.nix
       ../../apps/mpd.nix
       ../../apps/openttd-jgrpp.nix
+      ../../apps/qps.nix
       ../../apps/supercollider.nix
       ../../apps/swayidle.nix
       ../../apps/syncthing.nix
