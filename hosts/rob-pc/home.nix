@@ -31,10 +31,10 @@ in
       ../../apps/augustus.nix
       ../../apps/ch57x-keyboard-tool.nix
       ../../apps/distrobox.nix
+      ../../apps/dogecoin.nix
       ../../apps/kanshi.nix
       ../../apps/mpd.nix
       ../../apps/openttd-jgrpp.nix
-      ../../apps/qt5.nix
       ../../apps/supercollider.nix
       ../../apps/swayidle.nix
       ../../apps/syncthing.nix
