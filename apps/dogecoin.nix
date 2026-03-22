@@ -5,6 +5,7 @@
 
 {
   home.packages = with pkgs; [
+    miniupnpc
     qt5.qtbase
     qt5.qtwayland
   ];
