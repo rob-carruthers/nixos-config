@@ -8,6 +8,7 @@
       theme = "nordic";
       font-family = default-fonts.mono;
       font-size = font-sizes.mono;
+      font-feature = "-calt, -liga, -dlig";
       cursor-style = "bar";
       cursor-style-blink = false;
     };
