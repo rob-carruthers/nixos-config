@@ -2,6 +2,7 @@
   wayland.windowManager.labwc = {
     autostart = [
       "kanshi &"
+      "ch57x-keyboard-tool upload ~/.config/utility-keys/utility-keys.yaml &"
     ];
     environment = [
       "XKB_DEFAULT_LAYOUT=us"
