@@ -106,6 +106,18 @@
             };
           }
           {
+            "@key" = "W-j";
+            action = {
+              "@name" = "NextWindow";
+            };
+          }
+          {
+            "@key" = "W-k";
+            action = {
+              "@name" = "PreviousWindow";
+            };
+          }
+          {
             "@key" = "W-1";
             action = {
               "@name" = "GoToDesktop";
