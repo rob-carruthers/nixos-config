@@ -6,7 +6,7 @@
   services.greetd.enable = true;
   services.greetd.settings = {
     default_session = {
-      command = "labwc";
+      command = "Hyprland";
       user = "rob";
     };
   };
