@@ -22,7 +22,7 @@ in
         font-sizes = font-sizes;
       })
 
-      (import ../../desktops/labwc {
+      (import ../../desktops/hyprland {
         pkgs = pkgs;
         default-fonts = default-fonts;
         font-sizes = font-sizes;
@@ -42,7 +42,7 @@ in
       ../../apps/tmux.nix
       ../../apps/wlopm.nix
 
-      ./labwc.nix
+      ./hyprland.nix
       ../../lib/desktop-icons.nix
     ];
 
