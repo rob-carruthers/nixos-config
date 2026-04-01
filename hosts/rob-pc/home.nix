@@ -32,6 +32,7 @@ in
       ../../apps/ch57x-keyboard-tool.nix
       ../../apps/distrobox.nix
       ../../apps/dogecoin.nix
+      ../../apps/duckstation.nix
       ../../apps/kanshi.nix
       ../../apps/mpd.nix
       ../../apps/openttd-jgrpp.nix
