@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ../../config/aliases.nix
@@ -15,4 +17,5 @@
     213.165.84.232 robcarruthers.co.uk robcarruthers.com
   '';
 
+  environment.systemPackages = with pkgs; [ ghostty.terminfo ];
 }
