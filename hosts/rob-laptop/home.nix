@@ -29,6 +29,7 @@ in
       })
 
       ../../apps/augustus.nix
+      ../../apps/blueman.nix
       ../../apps/distrobox.nix
       ../../apps/dogecoin.nix
       ../../apps/legion-kb-rgb.nix

@@ -9,6 +9,7 @@
     };
     exec-once = [
       "legion-kb-rgb set -e Static -c 0,0,0,0,0,0,0,0,0,0,0,0 &"
+      "blueman-applet &"
     ];
     bindel = [
       ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
