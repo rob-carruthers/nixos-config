@@ -35,7 +35,7 @@
   };
 
   services.xserver.videoDrivers = [
-    "nvidia"
+    # "nvidia"
     "amdgpu"
   ];
 
