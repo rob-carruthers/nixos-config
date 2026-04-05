@@ -35,6 +35,7 @@ in
       ../../apps/duckstation.nix
       ../../apps/kanshi.nix
       ../../apps/mpd.nix
+      ../../apps/musescore.nix
       ../../apps/openttd-jgrpp.nix
       ../../apps/qps.nix
       ../../apps/supercollider.nix
