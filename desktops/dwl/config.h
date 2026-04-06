@@ -23,6 +23,16 @@ static const float fullscreen_bg[]         = {0.0f, 0.0f, 0.0f, 1.0f}; /* You ca
 /* logging */
 static int log_level = WLR_ERROR;
 
+/* Autostart */
+static const char *const autostart[] = {
+  "waybar", NULL,
+  "legion-kb-rgb", "set", "-e", "Static", "-c", "0,0,0,0,0,0,0,0,0,0,0,0", NULL,
+  "sh", "-c", "env", "QT_QPA_PLATFORM=wayland", "XDG_CURRENT_DESKTOP=labwc", "syncthingtray", "--wait", NULL,
+  "blueman-applet", NULL,
+  NULL /* terminate */
+};
+
+
 static const Rule rules[] = {
 	/* app_id             title       tags mask     isfloating   monitor */
 	{ "Gimp_EXAMPLE",     NULL,       0,            1,           -1 }, /* Start on currently visible tags floating, not tiled */

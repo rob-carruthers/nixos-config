@@ -14,6 +14,7 @@ let
         patches = (old.patches or [ ]) ++ [
           ./patches/attachbottom.patch
           ./patches/gaps.patch
+          ./patches/autostart.patch
         ];
       });
 in
