@@ -26,7 +26,8 @@ in
 
           "modules-left" = [
             "custom/start"
-            "ext/workspaces"
+            # "ext/workspaces"
+            "dwl/tags"
             "wlr/taskbar"
           ];
           "modules-center" = [ ];
@@ -55,6 +56,9 @@ in
           "ext/workspaces" = {
             "format" = " ";
             "on-click" = "activate";
+          };
+          "dwl/tags" = {
+            "num-tags" = 4;
           };
           "wlr/taskbar" = {
             "all-outputs" = false;
@@ -176,7 +180,7 @@ in
 
         }
 
-        #workspaces {
+        #workspaces, #tags {
             /* padding: 5px 10px; */
             margin: 5px 3px;
             background: #c0c0c0;
@@ -188,7 +192,7 @@ in
 
         }
 
-        #workspaces button {
+        #workspaces, #tags button {
             padding: 5px;
             margin: 0;
             background: #c0c0c0;
@@ -200,13 +204,18 @@ in
 
         }
 
-        #workspaces button:hover {
+        #workspaces, #tags button:hover {
             box-shadow: 0px 0px 0px;
             text-shadow: none;
             background: #E0E0E0;
         }
 
         #workspaces button.active {
+            background: #E0E0E0;
+            color: #000000;
+        }
+
+        #tags button.focused {
             background: #E0E0E0;
             color: #000000;
         }
