@@ -120,7 +120,7 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* commands */
 static const char *termcmd[] = { "ghostty", "-e", "tmux", NULL };
-static const char *menucmd[] = { "wofi", "--show", "drun", NULL };
+static const char *menucmd[] = { "wofi", "-m", "-I", "--show", "drun", NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: 2 -> at, etc. */
