@@ -15,6 +15,7 @@ let
           ./patches/attachbottom.patch
           ./patches/gaps.patch
           ./patches/autostart.patch
+          ./patches/ipc.patch
         ];
       });
 in
