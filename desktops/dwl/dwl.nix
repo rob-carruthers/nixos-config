@@ -16,6 +16,7 @@ let
           ./patches/gaps.patch
           ./patches/autostart.patch
           ./patches/ipc.patch
+          ./patches/dim-unfocused.patch
         ];
       });
 in
