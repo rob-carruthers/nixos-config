@@ -134,6 +134,11 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 static const char *termcmd[] = { "ghostty", "-e", "tmux", NULL };
 static const char *menucmd[] = { "wofi", "-m", "-I", "--show", "drun", NULL };
 static const char *runcmd[] = { "wofi", "-m", "-I", "--show", "run", NULL };
+static const char *volupcmd[] = {"pulsemixer", "--change-volume", "+5", NULL};
+static const char *voltogglecmd[] = {"pulsemixer", "--toggle-mute", NULL};
+static const char *voldowncmd[] = {"pulsemixer", "--change-volume", "-5", NULL};
+static const char *brightnessupcmd[] = {"brightnessctl", "-e4", "-n2", "set", "5%+", NULL};
+static const char *brightnessdowncmd[] = {"brightnessctl", "-e4", "-n2", "set", "5%-", NULL};
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: 2 -> at, etc. */
@@ -174,6 +179,13 @@ static const Key keys[] = {
 	TAGKEYS(          XKB_KEY_8, XKB_KEY_asterisk,                      7),
 	TAGKEYS(          XKB_KEY_9, XKB_KEY_parenleft,                     8),
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_q,           quit,             {0} },
+
+	// Laptop media keys
+	{ 0, XKB_KEY_XF86AudioRaiseVolume,           spawn,             {.v = volupcmd} },
+	{ 0, XKB_KEY_XF86AudioLowerVolume,           spawn,             {.v = voldowncmd} },
+	{ 0, XKB_KEY_XF86AudioMute,                  spawn,             {.v = voltogglecmd} },
+	{ 0, XKB_KEY_XF86MonBrightnessUp,            spawn,             {.v = brightnessupcmd} },
+	{ 0, XKB_KEY_XF86MonBrightnessDown,          spawn,             {.v = brightnessdowncmd} },
 
 	/* Ctrl-Alt-Backspace and Ctrl-Alt-Fx used to be handled by X server */
 	{ WLR_MODIFIER_CTRL|WLR_MODIFIER_ALT,XKB_KEY_Terminate_Server, quit, {0} },
