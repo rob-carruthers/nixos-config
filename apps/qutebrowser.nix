@@ -29,5 +29,27 @@ in
         };
       };
     };
+    extraConfig = ''
+      config.bind("gw", "hint all")
+      config.bind("<ctrl-o>", "back")
+      config.bind("<ctrl-i>", "forward")
+      config.bind("<alt-w>", "tab-close")
+      config.bind("<alt-PgUp>", "tab-prev")
+      config.bind("<alt-PgDown>", "tab-next")
+      c.hints.selectors["all"] = [
+        "a",
+        "area",
+        "textarea",
+        "select",
+        "input:not([type=hidden])",
+        "button",
+        "label",
+        "[onclick]",
+        "[onmousedown]",
+        "[role=link]",
+        "[role=button]",
+        "*[tabindex]",
+      ]
+    '';
   };
 }
