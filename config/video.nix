@@ -6,7 +6,7 @@
   services.greetd.enable = true;
   services.greetd.settings = {
     default_session = {
-      command = "Hyprland";
+      command = "dbus-run-session dwl";
       user = "rob";
     };
   };

@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   default-fonts,
@@ -22,7 +23,8 @@ in
         font-sizes = font-sizes;
       })
 
-      (import ../../desktops/hyprland {
+      (import ../../desktops/dwl {
+        config = config;
         pkgs = pkgs;
         default-fonts = default-fonts;
         font-sizes = font-sizes;
@@ -43,7 +45,7 @@ in
       ../../apps/tmux.nix
       ../../apps/wlopm.nix
 
-      ./hyprland.nix
+      # ./hyprland.nix
       ../../lib/desktop-icons.nix
     ];
 
