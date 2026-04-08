@@ -41,6 +41,7 @@ in
       font-sizes = font-sizes;
     })
     ../../apps/pcmanfm-qt.nix
+    ../../apps/qutebrowser.nix
     ../../apps/waybar.nix
     ../../apps/wofi.nix
   ];
