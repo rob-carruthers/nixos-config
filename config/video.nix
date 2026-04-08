@@ -6,7 +6,7 @@
   services.greetd.enable = true;
   services.greetd.settings = {
     default_session = {
-      command = "dwl";
+      command = "dbus-run-session dwl";
       user = "rob";
     };
   };
