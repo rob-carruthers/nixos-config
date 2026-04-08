@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   default-fonts,
   font-sizes,
@@ -6,9 +7,16 @@
 }:
 
 let
+  configMap = {
+    rob-laptop = ./config.laptop.h;
+    rob-pc = ./config.pc.h;
+  };
+
+  configH = configMap.${config.networking.hostName} or ./config.default.h;
+
   dwlCustom =
     (pkgs.dwl.override {
-      configH = ./config.h;
+      inherit configH;
     }).overrideAttrs
       (old: {
         patches = (old.patches or [ ]) ++ [

@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   default-fonts,
@@ -23,6 +24,7 @@ in
       })
 
       (import ../../desktops/dwl {
+        config = config;
         pkgs = pkgs;
         default-fonts = default-fonts;
         font-sizes = font-sizes;
