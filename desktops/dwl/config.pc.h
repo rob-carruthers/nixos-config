@@ -134,6 +134,13 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 static const char *termcmd[] = { "ghostty", "-e", "tmux", NULL };
 static const char *menucmd[] = { "wofi", "-m", "-I", "--show", "drun", NULL };
 static const char *runcmd[] = { "wofi", "-m", "-I", "--show", "run", NULL };
+static const char *ariocmd[] = { "ario", NULL };
+static const char *mpcprevcmd[] = { "mpc", "prev", NULL};
+static const char *mpctogglecmd[] = { "mpc", "toggle", NULL};
+static const char *mpcnextcmd[] = { "mpc", "next", NULL};
+static const char *volupcmd[] = {"pulsemixer", "--change-volume", "-2", NULL};
+static const char *voltogglecmd[] = {"pulsemixer", "--toggle-mute", NULL};
+static const char *voldowncmd[] = {"pulsemixer", "--change-volume" "+2", NULL};
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: 2 -> at, etc. */
@@ -174,6 +181,15 @@ static const Key keys[] = {
 	TAGKEYS(          XKB_KEY_8, XKB_KEY_asterisk,                      7),
 	TAGKEYS(          XKB_KEY_9, XKB_KEY_parenleft,                     8),
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_q,           quit,             {0} },
+
+	// PC Media keys
+	{ MODKEY|WLR_MODIFIER_SHIFT|WLR_MODIFIER_CTRL,          XKB_KEY_E,  spawn,    {.v = ariocmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT|WLR_MODIFIER_CTRL,          XKB_KEY_A,  spawn,    {.v = mpcprevcmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT|WLR_MODIFIER_CTRL,          XKB_KEY_B,  spawn,    {.v = mpctogglecmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT|WLR_MODIFIER_CTRL,          XKB_KEY_C,  spawn,    {.v = mpcnextcmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT|WLR_MODIFIER_CTRL,          XKB_KEY_M,  spawn,    {.v = volupcmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT|WLR_MODIFIER_CTRL,          XKB_KEY_N,  spawn,    {.v = voltogglecmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT|WLR_MODIFIER_CTRL,          XKB_KEY_O,  spawn,    {.v = voldowncmd} },
 
 	/* Ctrl-Alt-Backspace and Ctrl-Alt-Fx used to be handled by X server */
 	{ WLR_MODIFIER_CTRL|WLR_MODIFIER_ALT,XKB_KEY_Terminate_Server, quit, {0} },
