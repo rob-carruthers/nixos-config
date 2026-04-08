@@ -28,6 +28,7 @@ in
             "custom/start"
             # "ext/workspaces"
             "dwl/tags"
+            "dwl/window"
             "wlr/taskbar"
           ];
           "modules-center" = [ ];
@@ -59,6 +60,9 @@ in
           };
           "dwl/tags" = {
             "num-tags" = 4;
+          };
+          "dwl/window" = {
+            icon = true;
           };
           "wlr/taskbar" = {
             "all-outputs" = false;
