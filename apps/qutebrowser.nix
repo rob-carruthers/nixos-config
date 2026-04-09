@@ -71,11 +71,27 @@ in
       colors = {
         tabs = {
           bar.bg = colors.black2;
+          even.bg = colors.gray5;
+          odd.bg = colors.gray3;
+          selected = {
+            even.bg = colors.black1;
+            odd.bg = colors.black1;
+          };
         };
         statusbar = {
-          normal.bg = colors.black2;
-          normal.fg = colors.green.dim;
-          url.fg = colors.blue2;
+          normal = {
+            bg = colors.black2;
+            fg = colors.green.dim;
+          };
+          url = {
+            fg = colors.green.base;
+            success.http.fg = colors.green.base;
+            success.https.fg = colors.green.base;
+          };
+        };
+        hints = {
+          bg = colors.yellow.dim;
+          fg = colors.black2;
         };
       };
     };
