@@ -36,6 +36,7 @@ in
       ../../apps/dogecoin.nix
       ../../apps/duckstation.nix
       ../../apps/legion-kb-rgb.nix
+      ../../apps/libreoffice.nix
       ../../apps/musescore.nix
       ../../apps/openttd-jgrpp.nix
       ../../apps/qps.nix

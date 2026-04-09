@@ -36,6 +36,7 @@ in
       ../../apps/dogecoin.nix
       ../../apps/duckstation.nix
       ../../apps/kanshi.nix
+      ../../apps/libreoffice.nix
       ../../apps/mpd.nix
       ../../apps/musescore.nix
       ../../apps/openttd-jgrpp.nix
