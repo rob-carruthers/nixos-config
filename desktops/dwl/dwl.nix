@@ -41,6 +41,10 @@ in
       font-sizes = font-sizes;
     })
     ../../apps/pcmanfm-qt.nix
+    (import ../../apps/qutebrowser.nix {
+      default-fonts = default-fonts;
+      font-sizes = font-sizes;
+    })
     ../../apps/waybar.nix
     ../../apps/wofi.nix
   ];
