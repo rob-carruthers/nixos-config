@@ -64,18 +64,18 @@ in
       auto_save = {
         session = true;
       };
-      fonts = {
-        default_family = default-fonts.mono;
-        default_size = toString (font-sizes.mono + 2) + "px";
-      };
+      changelog_after_upgrade = "patch";
       colors = {
-        tabs = {
-          bar.bg = colors.black2;
-          even.bg = colors.gray5;
-          odd.bg = colors.gray3;
-          selected = {
-            even.bg = colors.black1;
-            odd.bg = colors.black1;
+        completion = {
+          match.fg = colors.orange.bright;
+        };
+        hints = {
+          bg = colors.yellow.dim;
+          fg = colors.black2;
+        };
+        messages = {
+          error = {
+            bg = colors.red.base;
           };
         };
         statusbar = {
@@ -89,16 +89,34 @@ in
             success.https.fg = colors.green.base;
           };
         };
-        hints = {
-          bg = colors.yellow.dim;
-          fg = colors.black2;
+        tabs = {
+          bar.bg = colors.black2;
+          even.bg = colors.gray5;
+          odd.bg = colors.gray3;
+          selected = {
+            even.bg = colors.black1;
+            odd.bg = colors.black1;
+          };
         };
       };
+      fonts = {
+        default_family = default-fonts.mono;
+        default_size = toString (font-sizes.mono + 2) + "px";
+      };
+      search = {
+        wrap = false;
+      };
+      tabs = {
+        new_position.related = "next";
+        new_position.unrelated = "next";
+      };
+      zoom.default = "90%";
     };
     extraConfig = ''
       config.bind("gw", "hint all")
       config.bind("<ctrl-o>", "back")
       config.bind("<ctrl-i>", "forward")
+      config.bind("<ctrl-r>", "reload")
       config.bind("<alt-w>", "tab-close")
       config.bind("<alt-PgUp>", "tab-prev")
       config.bind("<alt-PgDown>", "tab-next")
