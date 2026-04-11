@@ -1,8 +1,8 @@
 diff --git a/client.h b/client.h
-index 42f225f..1879288 100644
+index d9f90bb..7a7792d 100644
 --- a/client.h
 +++ b/client.h
-@@ -332,6 +332,12 @@ client_set_border_color(Client *c, const float color[static 4])
+@@ -318,6 +318,12 @@ client_set_border_color(Client *c, const float color[static 4])
  		wlr_scene_rect_set_color(c->border[i], color);
  }
  
@@ -16,7 +16,7 @@ index 42f225f..1879288 100644
  client_set_fullscreen(Client *c, int fullscreen)
  {
 diff --git a/config.def.h b/config.def.h
-index bd84ebc..c321936 100644
+index 5560eeb..ad894b7 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -13,6 +13,7 @@ static const unsigned int borderpx         = 1;  /* border pixel of windows */
@@ -26,35 +26,32 @@ index bd84ebc..c321936 100644
 +static const float unfocuseddim[]            = COLOR(0x00000088);
  static const float urgentcolor[]           = COLOR(0xff0000ff);
  /* This conforms to the xdg-protocol. Set the alpha to zero to restore the old behavior */
- static const float fullscreen_bg[]         = {0.1f, 0.1f, 0.1f, 1.0f}; /* You can also use glsl colors */
-@@ -32,10 +33,11 @@ static const char *const autostart[] = {
+ static const float fullscreen_bg[]         = {0.0f, 0.0f, 0.0f, 1.0f}; /* You can also use glsl colors */
+@@ -30,10 +31,11 @@ static const char *const autostart[] = {
+ };
  
- /* NOTE: ALWAYS keep a rule declared even if you don't use rules (e.g leave at least one example) */
  static const Rule rules[] = {
 -	/* app_id             title       tags mask     isfloating   monitor */
--	/* examples: */
 -	{ "Gimp_EXAMPLE",     NULL,       0,            1,           -1 }, /* Start on currently visible tags floating, not tiled */
 -	{ "firefox_EXAMPLE",  NULL,       1 << 8,       0,           -1 }, /* Start on ONLY tag "9" */
-+	/* app_id     title       tags mask     isfloating   neverdim      monitor */
-+	/* examples:
-+	{ "Gimp_example",     NULL,       0,            1,           0,            -1 },
-+	*/
-+	{ "firefox_example",  NULL,       1 << 8,       0,           1,		   -1 },
+-    /* default/example rule: can be changed but cannot be eliminated; at least one rule must exist */
++/* app_id     title       tags mask     isfloating   neverdim      monitor */
++/* examples:
++{ "Gimp_example",     NULL,       0,            1,           0,            -1 },
++*/
++{ "firefox_example",  NULL,       1 << 8,       0,           1,		   -1 },
  };
  
  /* layout(s) */
-@@ -152,8 +154,9 @@ static const Key keys[] = {
- 	{ MODKEY,                    XKB_KEY_f,          setlayout,      {.v = &layouts[1]} },
- 	{ MODKEY,                    XKB_KEY_m,          setlayout,      {.v = &layouts[2]} },
- 	{ MODKEY,                    XKB_KEY_space,      setlayout,      {0} },
-+	{ MODKEY,            		     XKB_KEY_apostrophe, toggledimming,  {0} },
- 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,      togglefloating, {0} },
--	{ MODKEY,                    XKB_KEY_e,         togglefullscreen, {0} },
-+	{ MODKEY,                    XKB_KEY_e,          togglefullscreen, {0} },
- 	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
- 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright, tag,            {.ui = ~0} },
- 	{ MODKEY,                    XKB_KEY_comma,      focusmon,       {.i = WLR_DIRECTION_LEFT} },
-@@ -184,5 +187,6 @@ static const Key keys[] = {
+@@ -143,6 +145,7 @@ static const Key keys[] = {
+ 	{ MODKEY,                    XKB_KEY_Tab,         view,             {0} },
+ 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_c,           killclient,       {0} },
+  	{ MODKEY,                    XKB_KEY_g,           togglegaps,       {0} },
++ 	{ MODKEY, 		               XKB_KEY_apostrophe,  toggledimming,    {0} },
+ 	{ MODKEY,                    XKB_KEY_t,           setlayout,        {.v = &layouts[0]} },
+ 	{ MODKEY,                    XKB_KEY_f,           setlayout,        {.v = &layouts[1]} },
+ 	{ MODKEY,                    XKB_KEY_m,           setlayout,        {.v = &layouts[2]} },
+@@ -179,5 +182,6 @@ static const Key keys[] = {
  static const Button buttons[] = {
  	{ MODKEY, BTN_LEFT,   moveresize,     {.ui = CurMove} },
  	{ MODKEY, BTN_MIDDLE, togglefloating, {0} },
@@ -62,10 +59,10 @@ index bd84ebc..c321936 100644
  	{ MODKEY, BTN_RIGHT,  moveresize,     {.ui = CurResize} },
  };
 diff --git a/dwl.c b/dwl.c
-index 10f91b0..5c59bc6 100644
+index cba3875..3d4f201 100644
 --- a/dwl.c
 +++ b/dwl.c
-@@ -112,6 +112,7 @@ typedef struct {
+@@ -109,6 +109,7 @@ typedef struct {
  	Monitor *mon;
  	struct wlr_scene_tree *scene;
  	struct wlr_scene_rect *border[4]; /* top, bottom, left, right */
@@ -73,7 +70,7 @@ index 10f91b0..5c59bc6 100644
  	struct wlr_scene_tree *scene_surface;
  	struct wl_list link;
  	struct wl_list flink;
-@@ -140,7 +141,7 @@ typedef struct {
+@@ -138,7 +139,7 @@ typedef struct {
  #endif
  	unsigned int bw;
  	uint32_t tags;
@@ -82,7 +79,7 @@ index 10f91b0..5c59bc6 100644
  	uint32_t resize; /* configure serial of a pending resize */
  } Client;
  
-@@ -239,6 +240,7 @@ typedef struct {
+@@ -236,6 +237,7 @@ typedef struct {
  	const char *title;
  	uint32_t tags;
  	int isfloating;
@@ -90,7 +87,7 @@ index 10f91b0..5c59bc6 100644
  	int monitor;
  } Rule;
  
-@@ -360,6 +362,8 @@ static void tag(const Arg *arg);
+@@ -356,6 +358,8 @@ static void tag(const Arg *arg);
  static void tagmon(const Arg *arg);
  static void tile(Monitor *m);
  static void togglebar(const Arg *arg);
@@ -99,15 +96,15 @@ index 10f91b0..5c59bc6 100644
  static void togglefloating(const Arg *arg);
  static void togglefullscreen(const Arg *arg);
  static void togglegaps(const Arg *arg);
-@@ -435,6 +439,7 @@ static struct wlr_output_layout *output_layout;
+@@ -428,6 +432,7 @@ static struct wlr_output_layout *output_layout;
  static struct wlr_box sgeom;
  static struct wl_list mons;
  static Monitor *selmon;
 +static int DIMOPT = 1;
  
- static struct zdwl_ipc_manager_v2_interface dwl_manager_implementation = {.release = dwl_ipc_manager_release, .get_output = dwl_ipc_manager_get_output};
- static struct zdwl_ipc_output_v2_interface dwl_output_implementation = {.release = dwl_ipc_output_release, .set_tags = dwl_ipc_output_set_tags, .set_layout = dwl_ipc_output_set_layout, .set_client_tags = dwl_ipc_output_set_client_tags};
-@@ -499,6 +504,7 @@ applyrules(Client *c)
+ /* global event handlers */
+ static struct wl_listener cursor_axis = {.notify = axisnotify};
+@@ -519,6 +524,7 @@ applyrules(Client *c)
  		if ((!r->title || strstr(title, r->title))
  				&& (!r->id || strstr(appid, r->id))) {
  			c->isfloating = r->isfloating;
@@ -115,7 +112,7 @@ index 10f91b0..5c59bc6 100644
  			newtags |= r->tags;
  			i = 0;
  			wl_list_for_each(m, &mons, link) {
-@@ -1624,8 +1630,10 @@ focusclient(Client *c, int lift)
+@@ -1687,8 +1693,10 @@ focusclient(Client *c, int lift)
  
  		/* Don't change border color if there is an exclusive focus or we are
  		 * handling a drag operation */
@@ -127,7 +124,7 @@ index 10f91b0..5c59bc6 100644
  	}
  
  	/* Deactivate old client if focus is changing */
-@@ -1643,7 +1651,7 @@ focusclient(Client *c, int lift)
+@@ -1706,7 +1714,7 @@ focusclient(Client *c, int lift)
  		 * and probably other clients */
  		} else if (old_c && !client_is_unmanaged(old_c) && (!c || !client_wants_focus(c))) {
  			client_set_border_color(old_c, bordercolor);
@@ -136,7 +133,7 @@ index 10f91b0..5c59bc6 100644
  			client_activate_surface(old, 0);
  		}
  	}
-@@ -1953,8 +1961,7 @@ void
+@@ -2008,8 +2016,7 @@ void
  mapnotify(struct wl_listener *listener, void *data)
  {
  	/* Called when the surface is mapped, or ready to display on-screen. */
@@ -146,7 +143,7 @@ index 10f91b0..5c59bc6 100644
  	Monitor *m;
  	int i;
  
-@@ -1986,6 +1993,10 @@ mapnotify(struct wl_listener *listener, void *data)
+@@ -2043,6 +2050,10 @@ mapnotify(struct wl_listener *listener, void *data)
  		c->border[i]->node.data = c;
  	}
  
@@ -157,7 +154,7 @@ index 10f91b0..5c59bc6 100644
  	/* Initialize client geometry with room for border */
  	client_set_tiled(c, WLR_EDGE_TOP | WLR_EDGE_BOTTOM | WLR_EDGE_LEFT | WLR_EDGE_RIGHT);
  	c->geom.width += 2 * c->bw;
-@@ -2008,6 +2019,10 @@ mapnotify(struct wl_listener *listener, void *data)
+@@ -2065,6 +2076,10 @@ mapnotify(struct wl_listener *listener, void *data)
  		setmon(c, p->mon, p->tags);
  	} else {
  		applyrules(c);
@@ -168,7 +165,7 @@ index 10f91b0..5c59bc6 100644
  	}
  	printstatus();
  
-@@ -2431,7 +2446,7 @@ resize(Client *c, struct wlr_box geo, int interact)
+@@ -2462,7 +2477,7 @@ resize(Client *c, struct wlr_box geo, int interact)
  	c->geom = geo;
  	applybounds(c, bbox);
  
@@ -177,7 +174,7 @@ index 10f91b0..5c59bc6 100644
  	wlr_scene_node_set_position(&c->scene->node, c->geom.x, c->geom.y);
  	wlr_scene_node_set_position(&c->scene_surface->node, c->bw, c->bw);
  	wlr_scene_rect_set_size(c->border[0], c->geom.width, c->bw);
-@@ -2441,6 +2456,8 @@ resize(Client *c, struct wlr_box geo, int interact)
+@@ -2472,6 +2487,8 @@ resize(Client *c, struct wlr_box geo, int interact)
  	wlr_scene_node_set_position(&c->border[1]->node, 0, c->geom.height - c->bw);
  	wlr_scene_node_set_position(&c->border[2]->node, 0, c->bw);
  	wlr_scene_node_set_position(&c->border[3]->node, c->geom.width - c->bw, c->bw);
@@ -186,7 +183,7 @@ index 10f91b0..5c59bc6 100644
  
  	/* this is a no-op if size hasn't changed */
  	c->resize = client_set_size(c, c->geom.width - 2 * c->bw,
-@@ -2978,6 +2995,27 @@ togglebar(const Arg *arg) {
+@@ -3005,6 +3022,27 @@ togglebar(const Arg *arg) {
  		zdwl_ipc_output_v2_send_toggle_visibility(ipc_output->resource);
  }
  

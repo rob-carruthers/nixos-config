@@ -19,6 +19,15 @@ let
       inherit configH;
     }).overrideAttrs
       (old: {
+        version = "0.8";
+        src = pkgs.fetchgit {
+          url = "https://codeberg.org/dwl/dwl.git";
+          rev = "v0.8";
+          sha256 = "sha256-J76L5ZOCYgfcY08wH5cSLG+UdgDrv50lQyEnJNqDkXI=";
+        };
+        buildInputs = builtins.filter (pkg: (pkg.pname or "") != "wlroots") (old.buildInputs or [ ]) ++ [
+          pkgs.wlroots_0_19
+        ];
         patches = (old.patches or [ ]) ++ [
           ./patches/attachbottom.patch
           ./patches/gaps.patch

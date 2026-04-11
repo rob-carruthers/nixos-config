@@ -1,24 +1,8 @@
-From 787f7252d63945996f009828aff3c44afd0f7781 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?Leonardo=20Hern=C3=A1ndez=20Hern=C3=A1ndez?=
- <leohdz172@proton.me>
-Date: Sat, 8 Jul 2023 17:11:36 -0600
-Subject: [PATCH] port autostart patch from dwm
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-
-https://dwm.suckless.org/patches/cool_autostart/
-Signed-off-by: Leonardo Hernández Hernández <leohdz172@proton.me>
----
- config.def.h |  7 +++++++
- dwl.c        | 59 +++++++++++++++++++++++++++++++++++++++++++++++-----
- 2 files changed, 61 insertions(+), 5 deletions(-)
-
 diff --git a/config.def.h b/config.def.h
-index 22d2171..8dc6502 100644
+index 9855e79..34d876e 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -20,6 +20,13 @@ static const float fullscreen_bg[]         = {0.1f, 0.1f, 0.1f, 1.0f}; /* You ca
+@@ -23,6 +23,12 @@ static const float fullscreen_bg[]         = {0.0f, 0.0f, 0.0f, 1.0f}; /* You ca
  /* logging */
  static int log_level = WLR_ERROR;
  
@@ -28,15 +12,14 @@ index 22d2171..8dc6502 100644
 +        NULL /* terminate */
 +};
 +
-+
- /* NOTE: ALWAYS keep a rule declared even if you don't use rules (e.g leave at least one example) */
  static const Rule rules[] = {
  	/* app_id             title       tags mask     isfloating   monitor */
+ 	{ "Gimp_EXAMPLE",     NULL,       0,            1,           -1 }, /* Start on currently visible tags floating, not tiled */
 diff --git a/dwl.c b/dwl.c
-index 5bf995e..e8b8727 100644
+index 46bead6..f03a383 100644
 --- a/dwl.c
 +++ b/dwl.c
-@@ -249,6 +249,7 @@ static void arrange(Monitor *m);
+@@ -247,6 +247,7 @@ static void arrange(Monitor *m);
  static void arrangelayer(Monitor *m, struct wl_list *list,
  		struct wlr_box *usable_area, int exclusive);
  static void arrangelayers(Monitor *m);
@@ -44,17 +27,17 @@ index 5bf995e..e8b8727 100644
  static void axisnotify(struct wl_listener *listener, void *data);
  static void buttonpress(struct wl_listener *listener, void *data);
  static void chvt(const Arg *arg);
-@@ -432,6 +433,9 @@ static xcb_atom_t netatom[NetLast];
- /* attempt to encapsulate suck into one file */
- #include "client.h"
+@@ -451,6 +452,9 @@ static struct wl_listener xwayland_ready = {.notify = xwaylandready};
+ static struct wlr_xwayland *xwayland;
+ #endif
  
 +static pid_t *autostart_pids;
 +static size_t autostart_len;
 +
- /* function implementations */
- void
- applybounds(Client *c, struct wlr_box *bbox)
-@@ -580,6 +584,27 @@ arrangelayers(Monitor *m)
+ /* configuration, allows nested code to access above variables */
+ #include "config.h"
+ 
+@@ -605,6 +609,27 @@ arrangelayers(Monitor *m)
  	}
  }
  
@@ -82,11 +65,13 @@ index 5bf995e..e8b8727 100644
  void
  axisnotify(struct wl_listener *listener, void *data)
  {
-@@ -676,11 +701,21 @@ checkidleinhibitor(struct wlr_surface *exclude)
+@@ -701,12 +726,23 @@ checkidleinhibitor(struct wlr_surface *exclude)
  void
  cleanup(void)
  {
 +	size_t i;
++
+ 	cleanuplisteners();
  #ifdef XWAYLAND
  	wlr_xwayland_destroy(xwayland);
  	xwayland = NULL;
@@ -104,44 +89,36 @@ index 5bf995e..e8b8727 100644
  	if (child_pid > 0) {
  		kill(-child_pid, SIGTERM);
  		waitpid(child_pid, NULL, 0);
-@@ -1497,18 +1532,31 @@ void
+@@ -1564,10 +1600,25 @@ gpureset(struct wl_listener *listener, void *data)
+ void
  handlesig(int signo)
  {
- 	if (signo == SIGCHLD) {
--#ifdef XWAYLAND
- 		siginfo_t in;
- 		/* wlroots expects to reap the XWayland process itself, so we
- 		 * use WNOWAIT to keep the child waitable until we know it's not
- 		 * XWayland.
- 		 */
- 		while (!waitid(P_ALL, 0, &in, WEXITED|WNOHANG|WNOWAIT) && in.si_pid
--				&& (!xwayland || in.si_pid != xwayland->server->pid))
--			waitpid(in.si_pid, NULL, 0);
--#else
+-	if (signo == SIGCHLD)
 -		while (waitpid(-1, NULL, WNOHANG) > 0);
-+#ifdef XWAYLAND
-+			   && (!xwayland || in.si_pid != xwayland->server->pid)
- #endif
-+			   ) {
-+			pid_t *p, *lim;
-+			waitpid(in.si_pid, NULL, 0);
-+			if (in.si_pid == child_pid)
+-	else if (signo == SIGINT || signo == SIGTERM)
++	if (signo == SIGCHLD) {
++		pid_t pid, *p, *lim;
++		while ((pid = waitpid(-1, NULL, WNOHANG)) > 0) {
++			if (pid == child_pid)
 +				child_pid = -1;
 +			if (!(p = autostart_pids))
 +				continue;
 +			lim = &p[autostart_len];
 +
 +			for (; p < lim; p++) {
-+				if (*p == in.si_pid) {
++				if (*p == pid) {
 +					*p = -1;
 +					break;
 +				}
 +			}
 +		}
- 	} else if (signo == SIGINT || signo == SIGTERM) {
++	} else if (signo == SIGINT || signo == SIGTERM) {
  		quit(NULL);
- 	}
-@@ -2224,6 +2272,7 @@ run(char *startup_cmd)
++	}
+ }
+ 
+ void
+@@ -2258,6 +2309,7 @@ run(char *startup_cmd)
  		die("startup: backend_start");
  
  	/* Now that the socket exists and the backend is started, run the startup command */
@@ -149,6 +126,3 @@ index 5bf995e..e8b8727 100644
  	if (startup_cmd) {
  		int piperw[2];
  		if (pipe(piperw) < 0)
--- 
-2.45.2
-
