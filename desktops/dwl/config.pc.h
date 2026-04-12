@@ -29,7 +29,7 @@ static const char *const autostart[] = {
   "systemctl", "--user", "start", "swayidle.service", NULL,
   "kanshi", NULL,
   "waybar", NULL,
-  "sh", "-c", "env", "QT_QPA_PLATFORM=wayland", "XDG_CURRENT_DESKTOP=labwc", "syncthingtray", "--wait", NULL,
+  "sh", "-c", "env", "QT_QPA_PLATFORM=wayland", "XDG_CURRENT_DESKTOP=dwl", "syncthingtray", "--wait", NULL,
   "ch57x-keyboard-tool", "upload", "~/.config/utility-keys/utility-keys.yaml", NULL,
   NULL /* terminate */
 };
