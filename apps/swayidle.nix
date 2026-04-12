@@ -8,8 +8,8 @@
   services.swayidle =
     let
       lock = "${pkgs.gtklock}/bin/gtklock";
-      off = "${pkgs.wlopm}/bin/wlopm --off \\*";
-      on = "${pkgs.wlopm}/bin/wlopm --on \\*";
+      off = "${pkgs.wlopm}/bin/wlopm --off *";
+      on = "${pkgs.wlopm}/bin/wlopm --on *";
     in
     {
       enable = true;
