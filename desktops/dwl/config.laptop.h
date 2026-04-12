@@ -26,6 +26,7 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
+  "systemctl", "--user", "start", "swayidle.service", NULL,
   "waybar", NULL,
   "legion-kb-rgb", "set", "-e", "Static", "-c", "0,0,0,0,0,0,0,0,0,0,0,0", NULL,
   "sh", "-c", "env", "QT_QPA_PLATFORM=wayland", "XDG_CURRENT_DESKTOP=labwc", "syncthingtray", "--wait", NULL,
