@@ -35,6 +35,13 @@ let
           ./patches/ipc.patch
           ./patches/dim-unfocused.patch
         ];
+        postPatch =
+          old.postPatch
+          + "\n"
+          + ''
+            substituteInPlace config.h \
+            --replace '@gtklock@' '${pkgs.gtklock}/bin/gtklock'
+          '';
       });
 in
 {

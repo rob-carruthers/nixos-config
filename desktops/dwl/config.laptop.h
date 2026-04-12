@@ -139,6 +139,7 @@ static const char *voltogglecmd[] = {"pulsemixer", "--toggle-mute", NULL};
 static const char *voldowncmd[] = {"pulsemixer", "--change-volume", "-5", NULL};
 static const char *brightnessupcmd[] = {"brightnessctl", "-e4", "-n2", "set", "5%+", NULL};
 static const char *brightnessdowncmd[] = {"brightnessctl", "-e4", "-n2", "set", "5%-", NULL};
+static const char *lockcmd[] = {"@gtklock@", NULL};
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: 2 -> at, etc. */
@@ -152,6 +153,7 @@ static const Key keys[] = {
 	// { MODKEY,                    XKB_KEY_d,           incnmaster,       {.i = -1} },
 	{ MODKEY,                    XKB_KEY_h,           setmfact,         {.f = -0.05f} },
 	{ MODKEY,                    XKB_KEY_l,           setmfact,         {.f = +0.05f} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_l,           spawn,            {.v = lockcmd} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Return,      zoom,             {0} },
 	{ MODKEY,                    XKB_KEY_Tab,         view,             {0} },
   { MODKEY,                    XKB_KEY_g,           togglegaps,       {0} },
