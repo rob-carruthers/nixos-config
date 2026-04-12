@@ -63,6 +63,7 @@ in
           };
           "dwl/window" = {
             icon = true;
+            icon-size = 16;
           };
           "wlr/taskbar" = {
             "all-outputs" = false;
