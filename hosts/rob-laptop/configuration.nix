@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   nixpkgs.config = {
@@ -26,6 +26,7 @@
 
     ../../apps/mullvad.nix
     ../../apps/podman.nix
+    inputs.mangowm.nixosModules.mango
   ];
 
   networking.hostName = "rob-laptop";
@@ -54,4 +55,6 @@
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="048d", ATTR{idProduct}=="c975", MODE="0666"
   '';
+
+  programs.mango.enable = true;
 }
