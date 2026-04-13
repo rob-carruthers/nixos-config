@@ -43,7 +43,7 @@
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       overlays = import ./lib/overlays.nix {
-        inherit legion-kb-rgb helix;
+        inherit helix legion-kb-rgb;
       };
       pkgs = import nixpkgs {
         inherit system overlays;

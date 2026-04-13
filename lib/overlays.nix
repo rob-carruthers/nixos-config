@@ -1,6 +1,6 @@
 {
-  legion-kb-rgb,
   helix,
+  legion-kb-rgb,
 }:
 
 [
