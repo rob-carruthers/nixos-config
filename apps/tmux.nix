@@ -24,7 +24,7 @@ in
       tmuxPlugins.yank
     ];
     prefix = "M-x";
-    terminal = "ghostty";
+    terminal = "foot";
     extraConfig = ''
       set -g @nova-nerdfonts true
       set -g @nova-nerdfonts-left 
