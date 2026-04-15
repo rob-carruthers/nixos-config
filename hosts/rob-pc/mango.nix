@@ -15,6 +15,6 @@
     bind=CTRL+SHIFT+SUPER,o,spawn,pulsemixer --change-volume +2
 
     exec-once=ch57x-keyboard-tool upload ~/.config/utility-keys/utility-keys.yaml
-    monitorrule=model:G24-10,refresh:144
+    monitorrule=serial:U5B3RM9A,width:1920,height:1080,refresh:143.99899
   '';
 }
