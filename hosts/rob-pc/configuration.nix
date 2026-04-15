@@ -1,3 +1,5 @@
+{ inputs, ... }:
+
 {
   nixpkgs.config = {
     permittedInsecurePackages = [
@@ -22,6 +24,7 @@
 
     ../../apps/mullvad.nix
     ../../apps/podman.nix
+    inputs.mangowm.nixosModules.mango
   ];
 
   networking.hostName = "rob-pc";
@@ -39,4 +42,6 @@
     SUBSYSTEM=="usb", ATTR{idVendor}=="1189", ATTR{idProduct}=="8840", GROUP="usb", MODE="0660"
     ACTION=="change", SUBSYSTEM=="power_supply", KERNEL=="apple_mfi_fastcharge*", ATTR{charge_type}="Fast"
   '';
+
+  programs.mango.enable = true;
 }
