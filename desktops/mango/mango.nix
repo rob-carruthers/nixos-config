@@ -11,6 +11,7 @@ let
     # autostarts
     exec-once=waybar
     exec-once=sh -c env QT_QPA_PLATFORM=wayland XDG_CURRENT_DESKTOP=mango syncthingtray
+    exec-once=pcmanfm-qt --desktop
 
 
     # Window effect
