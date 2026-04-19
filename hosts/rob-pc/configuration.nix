@@ -44,4 +44,8 @@
   '';
 
   programs.mango.enable = true;
+  programs.steam = {
+    enable = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
 }
