@@ -22,6 +22,10 @@
       url = "github:4JX/L5P-Keyboard-RGB";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mangowm = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -32,13 +36,14 @@
       home-manager,
       helix,
       legion-kb-rgb,
+      mangowm,
       ...
     }:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       overlays = import ./lib/overlays.nix {
-        inherit legion-kb-rgb helix;
+        inherit helix legion-kb-rgb;
       };
       pkgs = import nixpkgs {
         inherit system overlays;

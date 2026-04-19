@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   default-fonts,
@@ -15,20 +14,13 @@ in
 {
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
+  home-manager.extraSpecialArgs = { inherit default-fonts font-sizes; };
   home-manager.users.rob = {
     imports = [
-      (import ../../users/rob.nix {
-        pkgs = pkgs;
-        default-fonts = default-fonts;
-        font-sizes = font-sizes;
-      })
+      ../../users/rob.nix
 
-      (import ../../desktops/dwl {
-        config = config;
-        pkgs = pkgs;
-        default-fonts = default-fonts;
-        font-sizes = font-sizes;
-      })
+      ./mango.nix
+      ../../desktops/mango/mango.nix
 
       ../../apps/augustus.nix
       ../../apps/ch57x-keyboard-tool.nix

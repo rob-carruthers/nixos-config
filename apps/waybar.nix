@@ -26,9 +26,9 @@ in
 
           "modules-left" = [
             "custom/start"
-            # "ext/workspaces"
-            "dwl/tags"
-            "dwl/window"
+            "ext/workspaces"
+            # "dwl/tags"
+            # "dwl/window"
             "wlr/taskbar"
           ];
           "modules-center" = [ ];
@@ -55,7 +55,7 @@ in
             "on-click" = "exec nwg-menu -cmd-logout 'labwc -e' -k -term 'ghostty' -fm 'pcmanfm-qt'";
           };
           "ext/workspaces" = {
-            "format" = " ";
+            "format" = "{icon}";
             "on-click" = "activate";
           };
           "dwl/tags" = {
@@ -185,9 +185,9 @@ in
 
         }
 
-        #workspaces, #tags {
-            /* padding: 5px 10px; */
-            margin: 5px 3px;
+        #workspaces {
+            padding: 0;
+            margin: 5px 5px;
             background: #c0c0c0;
             color: #000000;
             border-left: 1px solid #ffffff;
@@ -197,8 +197,8 @@ in
 
         }
 
-        #workspaces, #tags button {
-            padding: 5px;
+        #workspaces button {
+            padding: 0;
             margin: 0;
             background: #c0c0c0;
             color: #000000;
@@ -206,21 +206,16 @@ in
             border-top: 1px solid #ffffff;
             border-bottom: 1px solid #404040;
             box-shadow: 1px 1px 1px 0px #000000;
-
+            min-width: 24px;
         }
 
-        #workspaces, #tags button:hover {
+        #workspaces button:hover {
             box-shadow: 0px 0px 0px;
             text-shadow: none;
             background: #E0E0E0;
         }
 
         #workspaces button.active {
-            background: #E0E0E0;
-            color: #000000;
-        }
-
-        #tags button.focused {
             background: #E0E0E0;
             color: #000000;
         }
