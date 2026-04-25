@@ -49,8 +49,12 @@
 
   swapDevices = [
     {
-      device = "/swapfile";
-      size = 16 * 1024; # 16GB
+      device = "/dev/disk/by-partuuid/ff8a004a-3cc0-4900-b8f0-56e7c109654d";
+      options = [ "discard" ];
+      randomEncryption = {
+        enable = true;
+        allowDiscards = true;
+      };
     }
   ];
 
