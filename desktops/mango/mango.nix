@@ -160,6 +160,7 @@ let
     bind=SUPER,d,spawn,wofi -m -I --show drun
     bind=SUPER,r,spawn,wofi -m -I --show run
     bind=SUPER,Return,spawn,foot tmux
+    bind=SUPER,e,spawn,pcmanfm-qt
     bind=CTRL+SHIFT,escape,spawn,qps
 
     # exit
