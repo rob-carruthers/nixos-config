@@ -28,7 +28,10 @@
 
   fileSystems."/" = {
     device = "/dev/mapper/crypt";
-    fsType = "ext4";
+    fsType = "btrfs";
+    options = [
+      "subvol=@nixos"
+    ];
   };
 
   boot.initrd.luks.devices."crypt".device = "/dev/disk/by-uuid/c5a29596-1e6d-48b7-bfbc-31edef562cec";
