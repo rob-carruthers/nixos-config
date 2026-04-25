@@ -28,7 +28,11 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/88ed434a-a692-447f-9caf-5814016a3305";
     fsType = "btrfs";
-    options = [ "subvol=@nixos" ];
+    options = [
+      "subvol=@nixos"
+      "compress=zstd"
+      "noatime"
+    ];
   };
 
   fileSystems."/boot" = {
