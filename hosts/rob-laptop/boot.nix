@@ -1,6 +1,7 @@
 {
   boot.loader.limine = {
     enable = true;
+    enableEditor = true;
     maxGenerations = 5;
     extraEntries = ''
       /Arch Linux Install Media
