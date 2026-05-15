@@ -13,7 +13,7 @@
     consoleLogLevel = 3;
     initrd.systemd.enable = true;
     initrd.verbose = false;
-    kernelPackages = pkgs.linuxPackages_6_18;
+    kernelPackages = pkgs.linuxPackages_7_0;
     kernelParams = [
       "quiet"
       "splash"
